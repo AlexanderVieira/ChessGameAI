@@ -1,19 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Board : MonoBehaviour
 {
     public static Board _instance;
+    public Transform goldenHolder;
+    public Transform greenHolder;    
     public List<Piece> goldenPieces = new List<Piece>();
     public List<Piece> greenPieces = new List<Piece>();
     public Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
 
     void Awake(){
         _instance = this;
-        CreateBoard();
-    }    
-    
+        //CreateBoard();
+    }
+
+    public async Task LoadAsync(){
+        GetTeams();
+        await Task.Run(() => CreateBoard());
+    }
+
+    private void GetTeams()
+    {
+        goldenPieces.AddRange(goldenHolder.GetComponentsInChildren<Piece>());
+        greenPieces.AddRange(greenHolder.GetComponentsInChildren<Piece>());
+    }
+
     void CreateBoard(){
         
         for (var i = 0; i < 8; i++)
@@ -42,12 +56,12 @@ public class Board : MonoBehaviour
         piece.tile = tiles[pos];
         piece.tile.content = piece;
 
-        if (team == "GoldenPieces")
-        {
-            goldenPieces.Add(piece);
-        }else{
-            greenPieces.Add(piece);
-        }
+        // if (team == "GoldenPieces")
+        // {
+        //     goldenPieces.Add(piece);
+        // }else{
+        //     greenPieces.Add(piece);
+        // }
 
     }
 }

@@ -1603,6 +1603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f74d26c7ee376429b36138d2f1aa27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldenHolder: {fileID: 954566095}
+  greenHolder: {fileID: 393248349}
   goldenPieces: []
   greenPieces: []
 --- !u!1 &987972828 stripped
