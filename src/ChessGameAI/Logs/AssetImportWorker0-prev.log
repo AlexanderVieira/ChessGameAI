@@ -15,11 +15,11 @@ D:/Desenv/Workspace/Projetos/VSCode/Chess game/src/ChessGameAI
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50285
+56796
 Successfully changed project path to: D:/Desenv/Workspace/Projetos/VSCode/Chess game/src/ChessGameAI
 D:/Desenv/Workspace/Projetos/VSCode/Chess game/src/ChessGameAI
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 59.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 61.37 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1 (b3b2c6512326)
 [Subsystems] Discovering subsystems at path D:/Arquivos Programas/Unity/Editor/Data/Resources/UnitySubsystems
@@ -35,650 +35,74 @@ Initialize mono
 Mono path[0] = 'D:/Arquivos Programas/Unity/Editor/Data/Managed'
 Mono path[1] = 'D:/Arquivos Programas/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'D:/Arquivos Programas/Unity/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56364
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56884
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Arquivos Programas/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001583 seconds.
+Registered in 0.001650 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 58.31 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 65.14 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.707 seconds
+- Completed reload, in  1.910 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005319 seconds.
+Registered in 0.005699 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file data-000001A37536DD70 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB0F660 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F931010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3748FA630 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F8C6A20 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBFA120 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F8E3020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F8C6A20 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37563D020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A373F29010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37431BA20 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37431BA20 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374959220 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA42E60 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FFF11E0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37414A010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FFF11E0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37443E010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374C3E630 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB0F660 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A373FA8010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375307A50 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3741F2010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAB9D30 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37594A030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37490D840 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 55.99 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 57.75 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.543 seconds
+- Completed reload, in  1.725 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
-Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.0 MB.
-System memory in use after: 92.9 MB.
-
-Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2520.
-Total: 3.080500 ms (FindLiveObjects: 0.282500 ms CreateObjectMapping: 0.083700 ms MarkObjects: 2.522400 ms  DeleteObjects: 0.189900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  path: Assets/Scripts/Pieces
-  artifactKey: Guid(5d34f2526a7b1b64d8e29086262524a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Pieces using Guid(5d34f2526a7b1b64d8e29086262524a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78e8f7566f5abab20d7ae21dd75095bf') in 0.018392 seconds 
-  Import took 0.044042 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.578585 seconds.
-  path: Assets/Scripts/Bishop.cs
-  artifactKey: Guid(74bbdc4b0a440e64f91df4578ab67f48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Bishop.cs using Guid(74bbdc4b0a440e64f91df4578ab67f48) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee89d49ce7f5b72ba12c12c22debfcfe') in 0.045216 seconds 
-  Import took 0.060057 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.017400 seconds.
-  path: Assets/Scripts/Knight.cs
-  artifactKey: Guid(b5679ccc2f8f2024eaafbd48a03e7b13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Knight.cs using Guid(b5679ccc2f8f2024eaafbd48a03e7b13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7104f6c20b0de7028573c190e2a6213') in 0.003077 seconds 
-  Import took 0.016327 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.549535 seconds.
-  path: Assets/Scripts/Rook.cs
-  artifactKey: Guid(82caca8b1d460d244a0d4d29945503ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Rook.cs using Guid(82caca8b1d460d244a0d4d29945503ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d4975f57aff7c7dee12038b8b848e7c') in 0.002976 seconds 
-  Import took 0.021086 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006400 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A378C42EE0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377EA0BD0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FFE91D0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378CB4080 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C5AFC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F750010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3701EB020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3701EB020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3741CCC60 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FFE91D0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A376145020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3745E7010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375789020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374396010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3741C6040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377F4F040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F8CD7F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378099E80 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE3BA00 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3741F2010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3701EB020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375F1B060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78970 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F8CD7F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.462 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.63 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2082 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.0 MB.
-System memory in use after: 92.9 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2524.
-Total: 3.030000 ms (FindLiveObjects: 0.286000 ms CreateObjectMapping: 0.078300 ms MarkObjects: 2.498800 ms  DeleteObjects: 0.164500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 25.688777 seconds.
-  path: Assets/Scripts/Board.cs
-  artifactKey: Guid(b8aff1d80c450764ebaa10129748a184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Board.cs using Guid(b8aff1d80c450764ebaa10129748a184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65c5eec4663d896adeb84558187df01a') in 0.009978 seconds 
-  Import took 0.105916 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006754 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A377AC6070 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378155BE0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBCC020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37011E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBCC020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374D55020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBCC020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBCC020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBCC020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB4B020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB9E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375789020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374396010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377FFF020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378880010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3701F4E50 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378880010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FC0D730 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37498A040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBCC020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB9E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78970 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37758FA20 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.421 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.64 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2083 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.0 MB.
-System memory in use after: 93.0 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2529.
-Total: 3.514700 ms (FindLiveObjects: 0.308700 ms CreateObjectMapping: 0.069200 ms MarkObjects: 2.961700 ms  DeleteObjects: 0.172400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 151.905419 seconds.
-  path: Assets/Scripts/Tile.cs
-  artifactKey: Guid(c5250203b706f124c8d0ddf527465b74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Tile.cs using Guid(c5250203b706f124c8d0ddf527465b74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30ab4ffffb4d43d35383d03e258b1581') in 0.009864 seconds 
-  Import took 0.040596 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004945 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A36F94D670 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F845EC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379263020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37011E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379263020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377BD6280 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379283040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379263020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379263020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB4B020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374C780A0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375789020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374396010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FBF3020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A12010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C48EF0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A12010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F73D560 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37498A040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379283040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374C780A0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C48EF0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.446 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
-System memory in use after: 93.0 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2534.
-Total: 3.529000 ms (FindLiveObjects: 0.336400 ms CreateObjectMapping: 0.088700 ms MarkObjects: 2.929000 ms  DeleteObjects: 0.171900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004932 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A1C812C680 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A376003070 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA34010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37011E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378D50030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37924B020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA34010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA34010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA34010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A399D200F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB9E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37495C020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374396010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37783FD70 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375A58010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A2E510 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375777010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FC0D730 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37498A040 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA34010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB9E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37912C650 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.442 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
-System memory in use after: 93.1 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2538.
-Total: 3.099300 ms (FindLiveObjects: 0.278200 ms CreateObjectMapping: 0.071300 ms MarkObjects: 2.578700 ms  DeleteObjects: 0.168800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 2099.821365 seconds.
-  path: Assets/Scripts/Board.cs
-  artifactKey: Guid(b8aff1d80c450764ebaa10129748a184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Board.cs using Guid(b8aff1d80c450764ebaa10129748a184) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b54205c437393e2982dbf2c3d86a459') in 0.007509 seconds 
-  Import took 0.012421 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005833 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A37884C410 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378AAE1B0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378D50030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C42E90 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378D50030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37720C1F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE08F10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375E9C020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3700ED5C0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378D50030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37813A020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3747D4240 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C3C070 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374396010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378956060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3771E0090 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378898030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375777010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FC0D730 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FC3DD00 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375E9C020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB9E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37912C650 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.674 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 1.08 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
-System memory in use after: 93.1 MB.
-
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2542.
-Total: 4.484700 ms (FindLiveObjects: 0.291100 ms CreateObjectMapping: 0.078400 ms MarkObjects: 3.891400 ms  DeleteObjects: 0.221300 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006823 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A36F899F30 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A399D22870 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C5AFC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C42E90 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C5AFC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37720C1F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37918D020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C5AFC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378C5AFC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3789A8030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB9E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C3C070 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A39A8DD090 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378956060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3743A6030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375EA5E50 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375777010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374740680 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A39A88C030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37918D020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FA41820 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78400 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A2E510 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 1.03 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.648 seconds
-Platform modules already initialized, skipping
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
 Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
+Unloading 2092 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 93.2 MB.
+System memory in use after: 93.2 MB.
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 2526.
+Total: 3.564000 ms (FindLiveObjects: 0.296300 ms CreateObjectMapping: 0.070000 ms MarkObjects: 2.998900 ms  DeleteObjects: 0.196300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Scripts/Pieces/Board.cs
+  artifactKey: Guid(48f74d26c7ee376429b36138d2f1aa27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Pieces/Board.cs using Guid(48f74d26c7ee376429b36138d2f1aa27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f2972bd9a2345b02af007836018e133e') in 0.044054 seconds 
+  Import took 0.048295 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005602 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.622 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.79 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 93.2 MB.
 System memory in use after: 93.1 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2546.
-Total: 3.098100 ms (FindLiveObjects: 0.276900 ms CreateObjectMapping: 0.071000 ms MarkObjects: 2.588500 ms  DeleteObjects: 0.160000 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2530.
+Total: 2.987600 ms (FindLiveObjects: 0.270800 ms CreateObjectMapping: 0.069800 ms MarkObjects: 2.477900 ms  DeleteObjects: 0.167100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -693,76 +117,22 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005025 seconds.
+Registered in 0.007638 seconds.
 Begin MonoManager ReloadAssembly
-Symbol file data-000001A377EF97E0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378857BF0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37011E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3753F3020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37720C1F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37918D020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3789A8030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377974210 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37495C020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377603030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A1C8136EC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3743A6030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A2E510 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A12010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374740680 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37016B420 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37918D020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377F6A1E0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78B40 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A2E510 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.441 seconds
+- Completed reload, in  1.731 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
-System memory in use after: 93.1 MB.
+Unloading 2087 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 93.2 MB.
+System memory in use after: 93.2 MB.
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2550.
-Total: 3.292600 ms (FindLiveObjects: 0.309400 ms CreateObjectMapping: 0.071900 ms MarkObjects: 2.739900 ms  DeleteObjects: 0.169300 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2534.
+Total: 4.485200 ms (FindLiveObjects: 0.294900 ms CreateObjectMapping: 0.074500 ms MarkObjects: 3.895000 ms  DeleteObjects: 0.217900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -775,171 +145,51 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005560 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A36F94DA20 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A378852080 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37011E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375F7B910 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37720C1F0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377D88010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3789A8030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3780B0DB0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37495C020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A39AC72080 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A1C8136EC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3743A6030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379196E50 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A12010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3779BC460 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A39A989010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377D88010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3780AE890 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78400 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A2E510 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.60 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.460 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.59 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
-System memory in use after: 93.1 MB.
+Received Import Request.
+  Time since last request: 251.253600 seconds.
+  path: Assets/Prefabs/Bishop.prefab
+  artifactKey: Guid(1281dbeb6a095ef4b8fc956a6a9f325d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Bishop.prefab using Guid(1281dbeb6a095ef4b8fc956a6a9f325d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebfd61914a5ba7e2f2ed173f7760708f') in 0.121063 seconds 
+  Import took 0.126692 seconds .
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2554.
-Total: 3.160200 ms (FindLiveObjects: 0.345200 ms CreateObjectMapping: 0.072800 ms MarkObjects: 2.578000 ms  DeleteObjects: 0.161700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008465 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file data-000001A378898430 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FAE7030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3788561D0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37011E020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\PsdPlugin.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377296470 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36F8E3020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377D88010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FB77010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.TextMeshPro.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FE14D10 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377C34060 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A375F83920 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3780B0DB0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37495C020 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEditor.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A39AC72080 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A1C8136EC0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Rider.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3743A6030 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\UnityEngine.UI.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A37407F010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A379196E50 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A12010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Animation.Triangle.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3780B0DB0 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A39ACA0080 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A377D88010 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A3780AE890 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A36FF78B40 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Symbol file data-000001A374A2E510 doesn't match image D:\Desenv\Workspace\Projetos\VSCode\Chess game\src\ChessGameAI\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.703 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2084 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.1 MB.
-System memory in use after: 93.1 MB.
+Received Import Request.
+  Time since last request: 0.000553 seconds.
+  path: Assets/Prefabs/Queen.prefab
+  artifactKey: Guid(4187965e5a1bdd74b87a05feb9281cec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Queen.prefab using Guid(4187965e5a1bdd74b87a05feb9281cec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be672543a3cc3ae12815a829522ea0a5') in 0.016006 seconds 
+  Import took 0.021618 seconds .
 
-Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 2558.
-Total: 4.323100 ms (FindLiveObjects: 0.399200 ms CreateObjectMapping: 0.107100 ms MarkObjects: 3.581200 ms  DeleteObjects: 0.233300 ms)
+========================================================================
+Received Import Request.
+  Time since last request: 0.000449 seconds.
+  path: Assets/Prefabs/Rook.prefab
+  artifactKey: Guid(2a0c8218a38cf4442ba9952918662163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Rook.prefab using Guid(2a0c8218a38cf4442ba9952918662163) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05b75656ad72bcb4be2665a3a070500d') in 0.016725 seconds 
+  Import took 0.022952 seconds .
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000402 seconds.
+  path: Assets/Prefabs/Knight.prefab
+  artifactKey: Guid(f92529b460eac4c42b824eba987ae282) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Knight.prefab using Guid(f92529b460eac4c42b824eba987ae282) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '983fa50a727df4959a6b9e92b755e49e') in 0.015455 seconds 
+  Import took 0.022038 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000472 seconds.
+  path: Assets/Prefabs/Pawn.prefab
+  artifactKey: Guid(b4291b3cc1a1e994d9bc000d2c442b92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Pawn.prefab using Guid(b4291b3cc1a1e994d9bc000d2c442b92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae546e4275d099aff0ccffb4bcc69b06') in 0.021568 seconds 
+  Import took 0.028152 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000543 seconds.
+  path: Assets/Prefabs/King.prefab
+  artifactKey: Guid(69ce240ca40c9854c866fba2318417d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/King.prefab using Guid(69ce240ca40c9854c866fba2318417d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5440c711126b2d92381683169e5f9fd9') in 0.017247 seconds 
+  Import took 0.022695 seconds .
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
