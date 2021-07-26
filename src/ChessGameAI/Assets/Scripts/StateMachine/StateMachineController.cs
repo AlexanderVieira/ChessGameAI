@@ -5,14 +5,17 @@ using UnityEngine;
 public class StateMachineController : MonoBehaviour
 {
     public static StateMachineController _instance;
-    State _current;
-    bool _busy;
+    public Player Player1;
+    public Player Player2;
+    public Player CurrentlyPlaying;
+    private State _current;
+    private bool _busy;
     
-    void Awake(){
+    private void Awake(){
         _instance = this;
     }
 
-    void Start(){
+    private void Start(){
         ChangeTo<LoadState>();
     }
 

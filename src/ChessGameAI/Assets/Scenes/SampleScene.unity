@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pawn1
       objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -359,6 +363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pawn6
       objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -455,6 +463,10 @@ PrefabInstance:
     - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_Name
       value: Pawn3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
@@ -611,6 +623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bishop1
       objectReference: {fileID: 0}
+    - target: {fileID: 1269206105380644741, guid: 1281dbeb6a095ef4b8fc956a6a9f325d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1859673368625532894, guid: 1281dbeb6a095ef4b8fc956a6a9f325d, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -675,6 +691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 393248349}
+  - component: {fileID: 393248350}
   m_Layer: 0
   m_Name: GreenPieces
   m_TagString: Untagged
@@ -712,6 +729,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393248350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393248348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89c21f6aa66ab841ae6a5062f6999c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  AIControlled: 0
 --- !u!1001 &438723781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -788,6 +819,10 @@ PrefabInstance:
     - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_Name
       value: Pawn0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
@@ -1000,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pawn2
       objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1123,6 +1162,10 @@ PrefabInstance:
     - target: {fileID: 1269206105380644741, guid: 1281dbeb6a095ef4b8fc956a6a9f325d, type: 3}
       propertyPath: m_Name
       value: Bishop0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269206105380644741, guid: 1281dbeb6a095ef4b8fc956a6a9f325d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1859673368625532894, guid: 1281dbeb6a095ef4b8fc956a6a9f325d, type: 3}
       propertyPath: m_RootOrder
@@ -1349,6 +1392,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pawn4
       objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1440,6 +1487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 954566095}
+  - component: {fileID: 954566096}
   m_Layer: 0
   m_Name: GoldenPieces
   m_TagString: Untagged
@@ -1477,6 +1525,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &954566096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954566094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89c21f6aa66ab841ae6a5062f6999c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  AIControlled: 0
 --- !u!1 &969831244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
@@ -1603,10 +1665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f74d26c7ee376429b36138d2f1aa27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldenHolder: {fileID: 954566095}
-  greenHolder: {fileID: 393248349}
-  goldenPieces: []
-  greenPieces: []
+  GoldenPieces: []
+  GreenPieces: []
 --- !u!1 &987972828 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
@@ -1711,6 +1771,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight0
       objectReference: {fileID: 0}
+    - target: {fileID: 4806584829961098967, guid: f92529b460eac4c42b824eba987ae282, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5397467699884949132, guid: f92529b460eac4c42b824eba987ae282, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1780,6 +1844,10 @@ PrefabInstance:
     - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_Name
       value: Pawn5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
@@ -1923,6 +1991,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ce0a4be34f61b40a02e41e7f4e8014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player1: {fileID: 954566096}
+  Player2: {fileID: 393248350}
+  CurrentlyPlaying: {fileID: 0}
 --- !u!4 &1186167104
 Transform:
   m_ObjectHideFlags: 0
@@ -2120,6 +2191,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rook0
       objectReference: {fileID: 0}
+    - target: {fileID: 7522989187895249186, guid: 2a0c8218a38cf4442ba9952918662163, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0c8218a38cf4442ba9952918662163, type: 3}
 --- !u!4 &1236174760 stripped
@@ -2234,6 +2309,10 @@ PrefabInstance:
     - target: {fileID: 7242395148756941476, guid: 4187965e5a1bdd74b87a05feb9281cec, type: 3}
       propertyPath: m_Name
       value: Queen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242395148756941476, guid: 4187965e5a1bdd74b87a05feb9281cec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7841307004776665855, guid: 4187965e5a1bdd74b87a05feb9281cec, type: 3}
       propertyPath: m_RootOrder
@@ -2655,6 +2734,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rook1
       objectReference: {fileID: 0}
+    - target: {fileID: 7522989187895249186, guid: 2a0c8218a38cf4442ba9952918662163, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a0c8218a38cf4442ba9952918662163, type: 3}
 --- !u!4 &1758500725 stripped
@@ -2707,6 +2790,10 @@ PrefabInstance:
     - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_Name
       value: Pawn7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785000563839339223, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4383346988026536588, guid: b4291b3cc1a1e994d9bc000d2c442b92, type: 3}
       propertyPath: m_RootOrder
@@ -2880,6 +2967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: King
       objectReference: {fileID: 0}
+    - target: {fileID: 8688795020005755271, guid: 69ce240ca40c9854c866fba2318417d0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69ce240ca40c9854c866fba2318417d0, type: 3}
 --- !u!4 &1880067431 stripped
@@ -2897,6 +2988,10 @@ PrefabInstance:
     - target: {fileID: 4806584829961098967, guid: f92529b460eac4c42b824eba987ae282, type: 3}
       propertyPath: m_Name
       value: Knight1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806584829961098967, guid: f92529b460eac4c42b824eba987ae282, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5397467699884949132, guid: f92529b460eac4c42b824eba987ae282, type: 3}
       propertyPath: m_RootOrder

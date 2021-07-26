@@ -6,11 +6,19 @@ using UnityEngine;
 public class Board : MonoBehaviour
 {
     public static Board _instance;
-    public Transform goldenHolder;
-    public Transform greenHolder;    
-    public List<Piece> goldenPieces = new List<Piece>();
-    public List<Piece> greenPieces = new List<Piece>();
-    public Dictionary<Vector2Int, Tile> tiles = new Dictionary<Vector2Int, Tile>();
+    public Transform GoldenHolder { 
+        get { 
+                return StateMachineController._instance.Player1.transform; 
+            } 
+    }
+    public Transform GreenHolder { 
+        get { 
+                return StateMachineController._instance.Player2.transform;
+            } 
+    }    
+    public List<Piece> GoldenPieces = new List<Piece>();
+    public List<Piece> GreenPieces = new List<Piece>();
+    public Dictionary<Vector2Int, Tile> Tiles = new Dictionary<Vector2Int, Tile>();
 
     void Awake(){
         _instance = this;
@@ -24,8 +32,8 @@ public class Board : MonoBehaviour
 
     private void GetTeams()
     {
-        goldenPieces.AddRange(goldenHolder.GetComponentsInChildren<Piece>());
-        greenPieces.AddRange(greenHolder.GetComponentsInChildren<Piece>());
+        GoldenPieces.AddRange(GoldenHolder.GetComponentsInChildren<Piece>());
+        GreenPieces.AddRange(GreenHolder.GetComponentsInChildren<Piece>());
     }
 
     void CreateBoard(){
@@ -45,7 +53,7 @@ public class Board : MonoBehaviour
         var tile = new Tile{
             pos = new Vector2Int(line, col)
         };
-        tiles.Add(tile.pos, tile);
+        Tiles.Add(tile.pos, tile);
 
     }
 
@@ -53,7 +61,7 @@ public class Board : MonoBehaviour
 
         var v2Pos = piece.transform.position;
         var pos = new Vector2Int((int)v2Pos.x, (int)v2Pos.y);
-        piece.tile = tiles[pos];
+        piece.tile = Tiles[pos];
         piece.tile.content = piece;
 
         // if (team == "GoldenPieces")
