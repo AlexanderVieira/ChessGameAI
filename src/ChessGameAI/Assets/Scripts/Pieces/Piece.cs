@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Piece : MonoBehaviour
 {
     public Tile tile;
+    public Movement Movement;
 
     // void Start(){
     //     Board._instance.AddPiece(transform.parent.name, this);
