@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
+public delegate void TileClickedEvent(object sender, object args);
 public class Board : MonoBehaviour
 {
     public static Board _instance;
@@ -19,6 +20,8 @@ public class Board : MonoBehaviour
     public List<Piece> GoldenPieces = new List<Piece>();
     public List<Piece> GreenPieces = new List<Piece>();
     public Dictionary<Vector2Int, Tile> Tiles = new Dictionary<Vector2Int, Tile>();
+    public TileClickedEvent TileClicked = delegate{};
+    public Piece SelectedPiece;
 
     void Awake(){
         _instance = this;

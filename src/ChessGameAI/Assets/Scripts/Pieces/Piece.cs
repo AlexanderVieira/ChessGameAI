@@ -10,6 +10,7 @@ public abstract class Piece : MonoBehaviour
     //     Board._instance.AddPiece(transform.parent.name, this);
     // }
     void OnMouseDown(){
-        Debug.Log("Clicou em "+transform.name);
+        //Debug.Log("Clicou em " + transform.name);
+        Board._instance.TileClicked(this, transform.parent.GetComponent<Player>());
     }
 }

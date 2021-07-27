@@ -16,6 +16,6 @@ public class TurnBeginState : State
         }
         Debug.Log(Machine.CurrentlyPlaying + " now playing");
         await Task.Delay(100);
-        Machine.ChangeTo<TurnEndState>();
+        Machine.ChangeTo<PieceSelectionState>();
     }
 }
