@@ -22,6 +22,7 @@ public class Board : MonoBehaviour
     public Dictionary<Vector2Int, Tile> Tiles = new Dictionary<Vector2Int, Tile>();
     public TileClickedEvent TileClicked = delegate{};
     public Piece SelectedPiece;
+    public HighlightClick SelectedHighlight;
 
     void Awake(){
         _instance = this;

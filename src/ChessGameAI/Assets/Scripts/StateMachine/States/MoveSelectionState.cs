@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,35 @@ public class MoveSelectionState : State
     {
         Debug.Log("Move Selection State.");
         var movements = Board._instance.SelectedPiece.Movement.GetValidMoves();
-        foreach (var tile in movements)
+        Highlight.Instance.SelectTiles(movements);
+        Board._instance.TileClicked += OnHighlightClicked;
+        // foreach (var tile in movements)
+        // {
+        //     Debug.Log(tile.pos);
+        // }
+    }
+
+    public override void Exit()
+    {
+        Highlight.Instance.DeSelectTiles();
+        Board._instance.TileClicked -= OnHighlightClicked;
+    }
+
+    private void OnHighlightClicked(object sender, object args)
+    {
+        var highlight = sender as HighlightClick;
+        if (highlight == null)
         {
-            Debug.Log(tile.pos);
+            return;
+        }
+        var v3Pos = highlight.transform.position;
+        var pos = new Vector2Int((int)v3Pos.x, (int)v3Pos.y);
+        Tile tileClicked;
+        if (Board._instance.Tiles.TryGetValue(pos, out tileClicked))
+        {
+            Debug.Log(tileClicked.pos);
+            Board._instance.SelectedHighlight = highlight;
+            Machine.ChangeTo<PieceMovementState>();
         }
     }
 }
