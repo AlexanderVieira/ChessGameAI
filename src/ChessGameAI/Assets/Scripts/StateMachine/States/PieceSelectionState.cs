@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PieceSelectionState : State
 {
-    public override void Enter()
+    public override void EnterAsync()
     {
         Board._instance.TileClicked += PieceClicked;
     }

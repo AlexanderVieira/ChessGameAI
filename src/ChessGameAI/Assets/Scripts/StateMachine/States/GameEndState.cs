@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameEndState : State
 {
-    public override void Enter()
+    public override void EnterAsync()
     {
         Debug.Log("Ended");
     }

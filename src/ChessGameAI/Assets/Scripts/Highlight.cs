@@ -28,6 +28,7 @@ public class Highlight : MonoBehaviour
             spriteRenderer.gameObject.SetActive(true);
             spriteRenderer.color = StateMachineController._instance.CurrentlyPlaying.color;
             spriteRenderer.transform.position = new Vector3(tile.pos.x, tile.pos.y, 0);
+            spriteRenderer.GetComponent<HighlightClick>().Tile = tile;
             _activeHighlights.Enqueue(spriteRenderer);
         }
     }

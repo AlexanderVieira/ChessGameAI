@@ -5,16 +5,12 @@ using UnityEngine;
 
 public class MoveSelectionState : State
 {
-    public override void Enter()
+    public override void EnterAsync()
     {
         Debug.Log("Move Selection State.");
         var movements = Board._instance.SelectedPiece.Movement.GetValidMoves();
         Highlight.Instance.SelectTiles(movements);
-        Board._instance.TileClicked += OnHighlightClicked;
-        // foreach (var tile in movements)
-        // {
-        //     Debug.Log(tile.pos);
-        // }
+        Board._instance.TileClicked += OnHighlightClicked;        
     }
 
     public override void Exit()
@@ -32,12 +28,10 @@ public class MoveSelectionState : State
         }
         var v3Pos = highlight.transform.position;
         var pos = new Vector2Int((int)v3Pos.x, (int)v3Pos.y);
-        Tile tileClicked;
-        if (Board._instance.Tiles.TryGetValue(pos, out tileClicked))
-        {
-            Debug.Log(tileClicked.pos);
-            Board._instance.SelectedHighlight = highlight;
-            Machine.ChangeTo<PieceMovementState>();
-        }
+        Tile tileClicked = highlight.Tile;
+        Debug.Log(tileClicked.pos);
+        Board._instance.SelectedHighlight = highlight;
+        Machine.ChangeTo<PieceMovementState>();
+
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LoadState : State
 {
-    public override async void Enter()
+    public override async void EnterAsync()
     {
         Debug.Log("Initial State Loaded.");
         await Board._instance.LoadAsync();

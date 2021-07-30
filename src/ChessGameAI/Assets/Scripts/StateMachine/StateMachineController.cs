@@ -36,7 +36,7 @@ public class StateMachineController : MonoBehaviour
 
         _current = state;
         if(_current != null)
-            _current.Enter();
+            _current.EnterAsync();
 
         _busy = false;
     }

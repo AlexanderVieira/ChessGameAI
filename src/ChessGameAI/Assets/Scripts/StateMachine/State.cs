@@ -8,7 +8,7 @@ public abstract class State : MonoBehaviour
         get { return StateMachineController._instance; }
     }
 
-    public virtual void Enter(){
+    public virtual void EnterAsync(){
 
     }
 

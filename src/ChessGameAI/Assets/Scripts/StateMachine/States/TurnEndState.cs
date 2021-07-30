@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TurnEndState : State
 {
-   public override async void Enter()
+   public override async void EnterAsync()
     {
         Debug.Log("Turn End State:");
         bool gameFinished = CheckTeams();

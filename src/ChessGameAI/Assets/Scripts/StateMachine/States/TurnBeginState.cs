@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TurnBeginState : State
 {
-    public override async void Enter()
+    public override async void EnterAsync()
     {
         Debug.Log("Turn Begin:");
         if (Machine.CurrentlyPlaying == Machine.Player1)

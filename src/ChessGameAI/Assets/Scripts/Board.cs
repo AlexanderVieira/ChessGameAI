@@ -66,14 +66,7 @@ public class Board : MonoBehaviour
         var v2Pos = piece.transform.position;
         var pos = new Vector2Int((int)v2Pos.x, (int)v2Pos.y);
         piece.tile = Tiles[pos];
-        piece.tile.content = piece;
-
-        // if (team == "GoldenPieces")
-        // {
-        //     goldenPieces.Add(piece);
-        // }else{
-        //     greenPieces.Add(piece);
-        // }
+        piece.tile.content = piece;        
 
     }
 }
