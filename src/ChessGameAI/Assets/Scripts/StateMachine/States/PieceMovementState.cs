@@ -15,10 +15,11 @@ public class PieceMovementState : State
         if (piece.tile.content != null)
         {
             var deadPiece = piece.tile.content;
-            Debug.LogFormat("Peça {0} foi capturada", deadPiece.transform);
+            Debug.LogFormat("The Piece {0} has been captured", deadPiece.transform.name);
             deadPiece.gameObject.SetActive(false);
         }
         piece.tile.content = piece;
+        piece.WasMoved = true;
         await Task.Delay(100);
         Machine.ChangeTo<TurnEndState>();
     }

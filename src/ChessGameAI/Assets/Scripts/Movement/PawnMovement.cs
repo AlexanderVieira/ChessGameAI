@@ -7,28 +7,37 @@ public class PawnMovement : Movement
 {
     public override List<Tile> GetValidMoves()
     {
-        List<Vector2Int> aux = new List<Vector2Int>();
+        // List<Vector2Int> aux = new List<Vector2Int>();
+        // var direction = GetDirection();
+        // aux.Add(Board._instance.SelectedPiece.tile.pos + direction);
+        // var exits = ValidateExits(aux);
+        // var moveable = UntilBlockedPath(exits);
+        // moveable.AddRange(GetPawnAttack(direction));
+
         var direction = GetDirection();
-        aux.Add(Board._instance.SelectedPiece.tile.pos + direction);
-        var exits = ValidateExits(aux);
-        var moveable = UntilBlockedPath(exits);
+        int limit = 1;
+        if (!Board._instance.SelectedPiece.WasMoved)
+        {
+            limit = 2;
+        }
+        List<Tile> moveable = UntilBlockedPath(direction, false, limit);
         moveable.AddRange(GetPawnAttack(direction));
         return moveable;
     }
 
-    private List<Tile> ValidateExits(List<Vector2Int> positions)
-    {
-        var values = new List<Tile>();
-        foreach (var position in positions)
-        {
-            Tile tile;
-            if (Board._instance.Tiles.TryGetValue(position, out tile))
-            {
-                values.Add(tile);
-            }
-        }
-        return values;
-    }
+    // private List<Tile> ValidateExits(List<Vector2Int> positions)
+    // {
+    //     var values = new List<Tile>();
+    //     foreach (var position in positions)
+    //     {
+    //         Tile tile;
+    //         if (Board._instance.Tiles.TryGetValue(position, out tile))
+    //         {
+    //             values.Add(tile);
+    //         }
+    //     }
+    //     return values;
+    // }
 
     private Vector2Int GetDirection()
     {
@@ -39,33 +48,33 @@ public class PawnMovement : Movement
         return new Vector2Int(0, 1);
     }
 
-    private List<Tile> UntilBlockedPath(List<Tile> positions){
+    // private List<Tile> UntilBlockedPath(List<Tile> positions){
 
-        var tilesValid = new List<Tile>();
-        for (int i = 0; i < positions.Count; i++)
-        {
-            if (positions[i].content == null)
-            {
-                tilesValid.Add(positions[i]);
-            }
-        }
-        return tilesValid;
-    }
+    //     var tilesValid = new List<Tile>();
+    //     for (int i = 0; i < positions.Count; i++)
+    //     {
+    //         if (positions[i].content == null)
+    //         {
+    //             tilesValid.Add(positions[i]);
+    //         }
+    //     }
+    //     return tilesValid;
+    // }
 
-    private bool IsEnemy(Vector2Int pos, out Tile tile){
+    // private bool IsEnemy(Vector2Int pos, out Tile tile){
 
-        if (Board._instance.Tiles.TryGetValue(pos, out tile))
-        {
-            if (tile != null && tile.content != null)
-            {
-                if (tile.content.transform.parent != Board._instance.SelectedPiece.transform.parent)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    //     if (Board._instance.Tiles.TryGetValue(pos, out tile))
+    //     {
+    //         if (tile != null && tile.content != null)
+    //         {
+    //             if (tile.content.transform.parent != Board._instance.SelectedPiece.transform.parent)
+    //             {
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    //     return false;
+    // }
 
     private List<Tile> GetPawnAttack(Vector2Int direction){
 
@@ -74,11 +83,13 @@ public class PawnMovement : Movement
         var piece = Board._instance.SelectedPiece;
         var lefPos = new Vector2Int(piece.tile.pos.x - 1, piece.tile.pos.y + direction.y);
         var rightPos = new Vector2Int(piece.tile.pos.x + 1, piece.tile.pos.y + direction.y);
-        if (IsEnemy(lefPos, out tile))
+        tile = GetTile(lefPos);
+        if (tile != null && IsEnemy(tile))
         {
             pawAttack.Add(tile);
         }
-        if (IsEnemy(rightPos, out tile))
+        tile = GetTile(rightPos);
+        if (tile != null && IsEnemy(tile))
         {
             pawAttack.Add(tile);
         }
