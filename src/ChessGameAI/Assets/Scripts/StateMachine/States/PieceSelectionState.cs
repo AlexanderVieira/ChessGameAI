@@ -7,12 +7,12 @@ public class PieceSelectionState : State
 {
     public override void EnterAsync()
     {
-        Board._instance.TileClicked += PieceClicked;
+        InputController.Instance.TileClicked += PieceClicked;
     }
 
     public override void Exit()
     {
-        Board._instance.TileClicked -= PieceClicked;
+        InputController.Instance.TileClicked -= PieceClicked;
     }
 
     private void PieceClicked(object sender, object args)

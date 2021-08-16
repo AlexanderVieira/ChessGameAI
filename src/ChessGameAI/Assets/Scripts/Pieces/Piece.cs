@@ -9,6 +9,6 @@ public abstract class Piece : MonoBehaviour
     public bool WasMoved;
     void OnMouseDown(){
         //Debug.Log("Clicou em " + transform.name);
-        Board._instance.TileClicked(this, transform.parent.GetComponent<Player>());
+        InputController.Instance.TileClicked(this, transform.parent.GetComponent<Player>());
     }
 }

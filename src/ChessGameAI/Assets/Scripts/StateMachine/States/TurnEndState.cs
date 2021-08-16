@@ -9,7 +9,7 @@ public class TurnEndState : State
    public override async void EnterAsync()
     {
         Debug.Log("Turn End State:");
-        bool gameFinished = CheckTeams();
+        bool gameFinished = CheckConditions();
         await Task.Delay(100);
         if (gameFinished)
         {
@@ -20,6 +20,34 @@ public class TurnEndState : State
             Machine.ChangeTo<TurnBeginState>();
         }
         
+    }
+
+    private bool CheckConditions()
+    {
+        if (CheckTeams() || CheckKing())
+        {
+            return true;
+        }
+        return false;
+    }
+
+    private bool CheckKing()
+    {
+        var king = Board._instance.GoldenHolder.GetComponentInChildren<King>();
+        if (king == null)
+        {
+            Debug.Log("Green Winner!");
+            return true;
+        }
+
+        king = Board._instance.GreenHolder.GetComponentInChildren<King>();
+        if (king == null)
+        {
+            Debug.Log("Golden Winner!");
+            return true;
+        }
+        return false;
+
     }
 
     private bool CheckTeams()

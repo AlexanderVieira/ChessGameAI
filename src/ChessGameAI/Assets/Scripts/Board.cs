@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public delegate void TileClickedEvent(object sender, object args);
+//public delegate void TileClickedEvent(object sender, object args);
 public class Board : MonoBehaviour
 {
     public static Board _instance;
@@ -20,7 +20,7 @@ public class Board : MonoBehaviour
     public List<Piece> GoldenPieces = new List<Piece>();
     public List<Piece> GreenPieces = new List<Piece>();
     public Dictionary<Vector2Int, Tile> Tiles = new Dictionary<Vector2Int, Tile>();
-    public TileClickedEvent TileClicked = delegate{};
+    //public TileClickedEvent TileClicked = delegate{};
     public Piece SelectedPiece;
     public HighlightClick SelectedHighlight;
 
@@ -40,7 +40,7 @@ public class Board : MonoBehaviour
         GreenPieces.AddRange(GreenHolder.GetComponentsInChildren<Piece>());
     }
 
-    void CreateBoard(){
+    private void CreateBoard(){
         
         for (var i = 0; i < 8; i++)
         {
@@ -52,7 +52,7 @@ public class Board : MonoBehaviour
 
     }
 
-    void CreateTile(int line, int col){
+    private void CreateTile(int line, int col){
 
         var tile = new Tile{
             pos = new Vector2Int(line, col)
@@ -68,5 +68,32 @@ public class Board : MonoBehaviour
         piece.tile = Tiles[pos];
         piece.tile.content = piece;        
 
+    }
+
+    [ContextMenu("Reset Board")]
+    public void ResetBoard(){
+        foreach (var tile in Tiles.Values)
+        {
+            tile.content = null;
+        }
+        foreach (var piece in GoldenPieces)
+        {
+            ResetPiece(piece);
+        }
+        foreach (var piece in GreenPieces)
+        {
+            ResetPiece(piece);
+        }
+    }
+
+    private void ResetPiece(Piece piece)
+    {
+        if (!piece.gameObject.activeSelf)
+        {
+            return;
+        }
+        var pos = new Vector2Int((int) piece.transform.position.x, (int) piece.transform.position.y);
+        Tiles.TryGetValue(pos, out piece.tile);
+        piece.tile.content = piece;
     }
 }

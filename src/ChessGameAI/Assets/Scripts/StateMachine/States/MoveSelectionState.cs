@@ -10,13 +10,20 @@ public class MoveSelectionState : State
         Debug.Log("Move Selection State.");
         var movements = Board._instance.SelectedPiece.Movement.GetValidMoves();
         Highlight.Instance.SelectTiles(movements);
-        Board._instance.TileClicked += OnHighlightClicked;        
+        InputController.Instance.TileClicked += OnHighlightClicked;        
+        InputController.Instance.ReturnClicked += ReturnClicked;
     }
 
     public override void Exit()
     {
         Highlight.Instance.DeSelectTiles();
-        Board._instance.TileClicked -= OnHighlightClicked;
+        InputController.Instance.TileClicked -= OnHighlightClicked;
+        InputController.Instance.ReturnClicked -= ReturnClicked;
+    }
+
+    private void ReturnClicked(object sender, object args)
+    {
+        Machine.ChangeTo<PieceSelectionState>();
     }
 
     private void OnHighlightClicked(object sender, object args)
