@@ -6,15 +6,15 @@ using UnityEngine;
 //public delegate void TileClickedEvent(object sender, object args);
 public class Board : MonoBehaviour
 {
-    public static Board _instance;
+    public static Board Instance;
     public Transform GoldenHolder { 
         get { 
-                return StateMachineController._instance.Player1.transform; 
+                return StateMachineController.Instance.Player1.transform; 
             } 
     }
     public Transform GreenHolder { 
         get { 
-                return StateMachineController._instance.Player2.transform;
+                return StateMachineController.Instance.Player2.transform;
             } 
     }    
     public List<Piece> GoldenPieces = new List<Piece>();
@@ -25,7 +25,7 @@ public class Board : MonoBehaviour
     public HighlightClick SelectedHighlight;
 
     void Awake(){
-        _instance = this;
+        Instance = this;
         //CreateBoard();
     }
 

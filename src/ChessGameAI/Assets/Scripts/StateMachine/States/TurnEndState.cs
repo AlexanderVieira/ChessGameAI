@@ -33,14 +33,14 @@ public class TurnEndState : State
 
     private bool CheckKing()
     {
-        var king = Board._instance.GoldenHolder.GetComponentInChildren<King>();
+        var king = Board.Instance.GoldenHolder.GetComponentInChildren<King>();
         if (king == null)
         {
             Debug.Log("Green Winner!");
             return true;
         }
 
-        king = Board._instance.GreenHolder.GetComponentInChildren<King>();
+        king = Board.Instance.GreenHolder.GetComponentInChildren<King>();
         if (king == null)
         {
             Debug.Log("Golden Winner!");
@@ -52,13 +52,13 @@ public class TurnEndState : State
 
     private bool CheckTeams()
     {
-        var goldenPiece = Board._instance.GoldenPieces.Find((x) => x.gameObject.activeSelf == true);
+        var goldenPiece = Board.Instance.GoldenPieces.Find((x) => x.gameObject.activeSelf == true);
         if (goldenPiece == null)
         {
             Debug.Log("Green Winner!");
             return true;
         }
-        var greenPiece = Board._instance.GreenPieces.Find((x) => x.gameObject.activeSelf == true);
+        var greenPiece = Board.Instance.GreenPieces.Find((x) => x.gameObject.activeSelf == true);
         if (greenPiece == null)
         {
             Debug.Log("Golden Winner!");

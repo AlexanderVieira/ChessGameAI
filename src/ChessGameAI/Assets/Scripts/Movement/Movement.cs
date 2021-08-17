@@ -7,7 +7,7 @@ public abstract class Movement
     public abstract List<Tile> GetValidMoves();
     protected bool IsEnemy(Tile tile){
 
-        if (tile.content != null && tile.content.transform.parent != Board._instance.SelectedPiece.transform.parent)
+        if (tile.content != null && tile.content.transform.parent != Board.Instance.SelectedPiece.transform.parent)
         {
             return true;
         }        
@@ -17,16 +17,16 @@ public abstract class Movement
     protected Tile GetTile(Vector2Int position){
 
         Tile tile;
-        Board._instance.Tiles.TryGetValue(position, out tile);
+        Board.Instance.Tiles.TryGetValue(position, out tile);
         return tile;
     }
     protected List<Tile> UntilBlockedPath(Vector2Int direction, bool includeBlocked, int limit){
 
         var moves = new List<Tile>();
-        var current = Board._instance.SelectedPiece.tile;
+        var current = Board.Instance.SelectedPiece.tile;
         while (current != null && moves.Count < limit)
         {
-            if (Board._instance.Tiles.TryGetValue(current.pos + direction, out current))
+            if (Board.Instance.Tiles.TryGetValue(current.pos + direction, out current))
             {
                 if (current.content == null)
                 {
@@ -47,5 +47,13 @@ public abstract class Movement
             }
         }
         return moves;       
+    }
+
+    protected void SetNormalMove(List<Tile> tiles){
+
+        foreach (var tile in tiles)
+        {
+            tile.MoveType = MoveType.Normal;
+        }
     }
 }

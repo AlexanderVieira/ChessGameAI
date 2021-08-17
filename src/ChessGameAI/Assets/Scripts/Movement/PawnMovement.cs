@@ -9,19 +9,20 @@ public class PawnMovement : Movement
     {
         // List<Vector2Int> aux = new List<Vector2Int>();
         // var direction = GetDirection();
-        // aux.Add(Board._instance.SelectedPiece.tile.pos + direction);
+        // aux.Add(Board.Instance.SelectedPiece.tile.pos + direction);
         // var exits = ValidateExits(aux);
         // var moveable = UntilBlockedPath(exits);
         // moveable.AddRange(GetPawnAttack(direction));
 
         var direction = GetDirection();
         int limit = 1;
-        if (!Board._instance.SelectedPiece.WasMoved)
+        if (!Board.Instance.SelectedPiece.WasMoved)
         {
             limit = 2;
         }
         List<Tile> moveable = UntilBlockedPath(direction, false, limit);
         moveable.AddRange(GetPawnAttack(direction));
+        SetNormalMove(moveable);
         return moveable;
     }
 
@@ -31,7 +32,7 @@ public class PawnMovement : Movement
     //     foreach (var position in positions)
     //     {
     //         Tile tile;
-    //         if (Board._instance.Tiles.TryGetValue(position, out tile))
+    //         if (Board.Instance.Tiles.TryGetValue(position, out tile))
     //         {
     //             values.Add(tile);
     //         }
@@ -41,7 +42,7 @@ public class PawnMovement : Movement
 
     private Vector2Int GetDirection()
     {
-        if (StateMachineController._instance.CurrentlyPlaying.transform.name == "GreenPieces")
+        if (StateMachineController.Instance.CurrentlyPlaying.transform.name == "GreenPieces")
         {
             return new Vector2Int(0, -1);
         }
@@ -63,11 +64,11 @@ public class PawnMovement : Movement
 
     // private bool IsEnemy(Vector2Int pos, out Tile tile){
 
-    //     if (Board._instance.Tiles.TryGetValue(pos, out tile))
+    //     if (Board.Instance.Tiles.TryGetValue(pos, out tile))
     //     {
     //         if (tile != null && tile.content != null)
     //         {
-    //             if (tile.content.transform.parent != Board._instance.SelectedPiece.transform.parent)
+    //             if (tile.content.transform.parent != Board.Instance.SelectedPiece.transform.parent)
     //             {
     //                 return true;
     //             }
@@ -80,7 +81,7 @@ public class PawnMovement : Movement
 
         var pawAttack = new List<Tile>();
         Tile tile;
-        var piece = Board._instance.SelectedPiece;
+        var piece = Board.Instance.SelectedPiece;
         var lefPos = new Vector2Int(piece.tile.pos.x - 1, piece.tile.pos.y + direction.y);
         var rightPos = new Vector2Int(piece.tile.pos.x + 1, piece.tile.pos.y + direction.y);
         tile = GetTile(lefPos);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateMachineController : MonoBehaviour
 {
-    public static StateMachineController _instance;
+    public static StateMachineController Instance;
     public Player Player1;
     public Player Player2;
     public Player CurrentlyPlaying;
@@ -12,7 +12,7 @@ public class StateMachineController : MonoBehaviour
     private bool _busy;
     
     private void Awake(){
-        _instance = this;
+        Instance = this;
     }
 
     private void Start(){

@@ -8,7 +8,7 @@ public class MoveSelectionState : State
     public override void EnterAsync()
     {
         Debug.Log("Move Selection State.");
-        var movements = Board._instance.SelectedPiece.Movement.GetValidMoves();
+        var movements = Board.Instance.SelectedPiece.Movement.GetValidMoves();
         Highlight.Instance.SelectTiles(movements);
         InputController.Instance.TileClicked += OnHighlightClicked;        
         InputController.Instance.ReturnClicked += ReturnClicked;
@@ -37,7 +37,7 @@ public class MoveSelectionState : State
         var pos = new Vector2Int((int)v3Pos.x, (int)v3Pos.y);
         Tile tileClicked = highlight.Tile;
         Debug.Log(tileClicked.pos);
-        Board._instance.SelectedHighlight = highlight;
+        Board.Instance.SelectedHighlight = highlight;
         Machine.ChangeTo<PieceMovementState>();
 
     }

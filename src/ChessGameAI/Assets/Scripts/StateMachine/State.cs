@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class State : MonoBehaviour
 {
     protected StateMachineController Machine{
-        get { return StateMachineController._instance; }
+        get { return StateMachineController.Instance; }
     }
 
     public virtual void EnterAsync(){

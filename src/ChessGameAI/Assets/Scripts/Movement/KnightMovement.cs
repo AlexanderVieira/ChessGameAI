@@ -12,13 +12,14 @@ public class KnightMovement : Movement
         moves.AddRange(GetStraightMovement(new Vector2Int(0, -1)));
         moves.AddRange(GetStraightMovement(new Vector2Int(1, 0)));
         moves.AddRange(GetStraightMovement(new Vector2Int(-1, 0)));
+        SetNormalMove(moves);
         return moves;
     }
 
     private List<Tile> GetStraightMovement(Vector2Int direction)
     {
         var moves = new List<Tile>();
-        var current = Board._instance.SelectedPiece.tile;
+        var current = Board.Instance.SelectedPiece.tile;
         var aux = GetTile(current.pos + direction * 2);
         if (aux != null)
         {

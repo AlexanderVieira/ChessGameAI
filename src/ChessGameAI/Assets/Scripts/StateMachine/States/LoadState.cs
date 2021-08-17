@@ -9,7 +9,7 @@ public class LoadState : State
     public override async void EnterAsync()
     {
         Debug.Log("Initial State Loaded.");
-        await Board._instance.LoadAsync();
+        await Board.Instance.LoadAsync();
         await LoadAllPiecesAsync();
         Machine.CurrentlyPlaying = Machine.Player2;
         Machine.ChangeTo<TurnBeginState>();
@@ -17,8 +17,8 @@ public class LoadState : State
 
     private async Task LoadAllPiecesAsync()
     {
-        LoadTeamPieces(Board._instance.GoldenPieces);
-        LoadTeamPieces(Board._instance.GreenPieces);
+        LoadTeamPieces(Board.Instance.GoldenPieces);
+        LoadTeamPieces(Board.Instance.GreenPieces);
         await Task.Delay(100);
     }
 
@@ -26,7 +26,7 @@ public class LoadState : State
     {
         foreach (var piece in pieces)
         {
-            Board._instance.AddPiece(piece.transform.parent.name, piece);
+            Board.Instance.AddPiece(piece.transform.parent.name, piece);
         }
     }
 }

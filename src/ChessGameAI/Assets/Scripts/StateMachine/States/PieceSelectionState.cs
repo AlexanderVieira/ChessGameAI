@@ -22,7 +22,7 @@ public class PieceSelectionState : State
         if (Machine.CurrentlyPlaying == player)
         {
             Debug.Log(piece + " was clicked.");
-            Board._instance.SelectedPiece = piece;
+            Board.Instance.SelectedPiece = piece;
             Machine.ChangeTo<MoveSelectionState>();            
         }
         
