@@ -20,4 +20,9 @@ public class InputController : MonoBehaviour
             ReturnClicked(null, null);
         }
     }
+
+    public void Promotion(string piece){
+
+        StateMachineController.Instance.TaskHold.SetResult(piece);
+    }
 }

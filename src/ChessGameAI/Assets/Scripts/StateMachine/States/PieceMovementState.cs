@@ -1,3 +1,4 @@
+using System.Data;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
@@ -13,24 +14,56 @@ public class PieceMovementState : State
         Debug.Log("Piece Movement State.");
         var moveType = Board.Instance.SelectedHighlight.Tile.MoveType;
         ClearEnPassant();
-        //var tcs = new TaskCompletionSource<bool>();
+        var tcs = new TaskCompletionSource<bool>();
         switch(moveType){
 
             case MoveType.Normal:
-                NormalMove();
+                NormalMove(tcs);
                 break;
             case MoveType.Castling:
-                Castling();
+                Castling(tcs);
                 break;
             case MoveType.PawnDoubleMove:
-                PawnDoubleMove();
+                PawnDoubleMove(tcs);
                 break;
             case MoveType.EnPassant:
-                EnPassant();
-                break;                
+                EnPassant(tcs);
+                break;
+            case MoveType.Promotion:
+                Promotion(tcs);
+                break;
         }
+
+        //await tcs.Task;
         await Task.Delay(100);
         Machine.ChangeTo<TurnEndState>();
+    }
+    private async void Promotion(TaskCompletionSource<bool> tcs)
+    {
+        Debug.Log("Pawn Promotion");
+        var movementTCS = new TaskCompletionSource<bool>();
+        NormalMove(movementTCS);
+        await movementTCS.Task;
+        
+        //NormalMove();
+        //await Task.Delay(100);
+        
+        StateMachineController.Instance.TaskHold = new TaskCompletionSource<object>();
+        StateMachineController.Instance.PromotionPanel.SetActive(true);
+        await StateMachineController.Instance.TaskHold.Task;
+        
+        var result = StateMachineController.Instance.TaskHold.Task.Result as string;
+        //Debug.Log(result);
+        if (result == "Knight")
+        {
+            Debug.Log(result);
+            Board.Instance.SelectedPiece.Movement = new KnightMovement();
+        }else
+        {
+            Board.Instance.SelectedPiece.Movement = new QueenMovement();
+        }
+        StateMachineController.Instance.PromotionPanel.SetActive(false); 
+        tcs.SetResult(true);       
     }
 
     private void ClearEnPassant()
@@ -49,7 +82,7 @@ public class PieceMovementState : State
         }
     }
 
-    private void EnPassant()
+    private void EnPassant(TaskCompletionSource<bool> tcs)
     {
         var pawn = Board.Instance.SelectedPiece;
         var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ? new Vector2Int(0, 1) : new Vector2Int(0, -1);
@@ -57,18 +90,18 @@ public class PieceMovementState : State
         var enemy = Board.Instance.Tiles[Board.Instance.SelectedHighlight.Tile.pos + direction];
         enemy.content.gameObject.SetActive(false);
         enemy.content = null;
-        NormalMove();
+        NormalMove(tcs);
     }
 
-    private void PawnDoubleMove()
+    private void PawnDoubleMove(TaskCompletionSource<bool> tcs)
     {
         var pawn = Board.Instance.SelectedPiece;
         var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ? new Vector2Int(0, -1) : new Vector2Int(0, 1);
         Board.Instance.Tiles[pawn.tile.pos + direction].MoveType = MoveType.EnPassant;
-        NormalMove();
+        NormalMove(tcs);
     }
 
-    private void Castling()
+    private void Castling(TaskCompletionSource<bool> tcs)
     {
         var king = Board.Instance.SelectedPiece;
         king.tile.content = null;
@@ -93,6 +126,7 @@ public class PieceMovementState : State
 
         king.transform.position = new Vector3(king.tile.pos.x, king.tile.pos.y, 0);
         rook.transform.position = new Vector3(rook.tile.pos.x, rook.tile.pos.y, 0);
+        tcs.SetResult(true);
 
         // LeanTween.move(king.gameObject, new Vector3(king.tile.pos.x, king.tile.pos.y, 0), 1.5f)
         //          .setOnComplete(() => 
@@ -102,7 +136,7 @@ public class PieceMovementState : State
         // LeanTween.move(rook.gameObject, new Vector3(rook.tile.pos.x, rook.tile.pos.y, 0), 1.4f);
     }
 
-    private void NormalMove(){
+    private void NormalMove(TaskCompletionSource<bool> tcs){
 
         var piece = Board.Instance.SelectedPiece;
         piece.transform.position = Board.Instance.SelectedHighlight.transform.position;
@@ -116,6 +150,7 @@ public class PieceMovementState : State
         }
         piece.tile.content = piece;
         piece.WasMoved = true;
+        tcs.SetResult(true);
 
         //var timing = Vector3.Distance(piece.transform.position, Board.Instance.SelectedHighlight.transform.position) * 0.5f;
         // LeanTween.move(piece.gameObject, Board.Instance.SelectedHighlight.transform.position, timing)
