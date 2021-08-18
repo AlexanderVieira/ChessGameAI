@@ -15,14 +15,28 @@ public class PawnMovement : Movement
         // moveable.AddRange(GetPawnAttack(direction));
 
         var direction = GetDirection();
+        var moveable = GetPawnAttack(direction);
+        var moves = new List<Tile>();
         int limit = 1;
         if (!Board.Instance.SelectedPiece.WasMoved)
         {
             limit = 2;
+            moves = UntilBlockedPath(direction, false, limit);
+            SetNormalMove(moves);
+            if (moves.Count == limit)
+            {
+                moves[1].MoveType = MoveType.PawnDoubleMove;
+            }
+        }else
+        {
+            moves = UntilBlockedPath(direction, false, limit);
+            SetNormalMove(moves);
         }
-        List<Tile> moveable = UntilBlockedPath(direction, false, limit);
-        moveable.AddRange(GetPawnAttack(direction));
-        SetNormalMove(moveable);
+
+        //List<Tile> moveable = UntilBlockedPath(direction, false, limit);
+        //moveable.AddRange(GetPawnAttack(direction));
+        //SetNormalMove(moveable);
+        moveable.AddRange(moves);
         return moveable;
     }
 
@@ -79,21 +93,30 @@ public class PawnMovement : Movement
 
     private List<Tile> GetPawnAttack(Vector2Int direction){
 
-        var pawAttack = new List<Tile>();
-        Tile tile;
+        var pawAttack = new List<Tile>();        
         var piece = Board.Instance.SelectedPiece;
         var lefPos = new Vector2Int(piece.tile.pos.x - 1, piece.tile.pos.y + direction.y);
         var rightPos = new Vector2Int(piece.tile.pos.x + 1, piece.tile.pos.y + direction.y);
-        tile = GetTile(lefPos);
-        if (tile != null && IsEnemy(tile))
-        {
-            pawAttack.Add(tile);
-        }
-        tile = GetTile(rightPos);
-        if (tile != null && IsEnemy(tile))
-        {
-            pawAttack.Add(tile);
-        }
+        GetPawnAttack(GetTile(lefPos), pawAttack);
+        GetPawnAttack(GetTile(rightPos), pawAttack);        
         return pawAttack;
+    }
+
+    private void GetPawnAttack(Tile tile, List<Tile> pawAttack)
+    {
+        if (tile == null)
+        {
+            return;
+        }        
+        
+        if (IsEnemy(tile))
+        {
+            tile.MoveType = MoveType.Normal;
+            pawAttack.Add(tile);
+        }        
+        else if (tile.MoveType == MoveType.EnPassant)
+        {            
+            pawAttack.Add(tile);
+        }
     }
 }

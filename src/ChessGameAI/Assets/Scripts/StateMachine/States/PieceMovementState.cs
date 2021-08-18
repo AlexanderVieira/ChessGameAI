@@ -4,14 +4,17 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PieceMovementState : State
 {
     public override async void EnterAsync()
     {
         Debug.Log("Piece Movement State.");
+        var moveType = Board.Instance.SelectedHighlight.Tile.MoveType;
+        ClearEnPassant();
         //var tcs = new TaskCompletionSource<bool>();
-        switch(Board.Instance.SelectedHighlight.Tile.MoveType){
+        switch(moveType){
 
             case MoveType.Normal:
                 NormalMove();
@@ -19,9 +22,50 @@ public class PieceMovementState : State
             case MoveType.Castling:
                 Castling();
                 break;
+            case MoveType.PawnDoubleMove:
+                PawnDoubleMove();
+                break;
+            case MoveType.EnPassant:
+                EnPassant();
+                break;                
         }
         await Task.Delay(100);
         Machine.ChangeTo<TurnEndState>();
+    }
+
+    private void ClearEnPassant()
+    {
+        ClearEnPassant(5);
+        ClearEnPassant(2);
+    }
+
+    private void ClearEnPassant(int height)
+    {
+        var position = new Vector2Int(0, height);
+        for (int i = 0; i < 7; i++)
+        {
+            position.x = position.x + 1;
+            Board.Instance.Tiles[position].MoveType = MoveType.Normal;
+        }
+    }
+
+    private void EnPassant()
+    {
+        var pawn = Board.Instance.SelectedPiece;
+        var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ? new Vector2Int(0, 1) : new Vector2Int(0, -1);
+        Debug.Log(Board.Instance.SelectedHighlight.Tile.pos + direction);
+        var enemy = Board.Instance.Tiles[Board.Instance.SelectedHighlight.Tile.pos + direction];
+        enemy.content.gameObject.SetActive(false);
+        enemy.content = null;
+        NormalMove();
+    }
+
+    private void PawnDoubleMove()
+    {
+        var pawn = Board.Instance.SelectedPiece;
+        var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ? new Vector2Int(0, -1) : new Vector2Int(0, 1);
+        Board.Instance.Tiles[pawn.tile.pos + direction].MoveType = MoveType.EnPassant;
+        NormalMove();
     }
 
     private void Castling()

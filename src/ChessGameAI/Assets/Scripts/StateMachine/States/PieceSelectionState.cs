@@ -7,12 +7,22 @@ public class PieceSelectionState : State
 {
     public override void EnterAsync()
     {
+        SetColliders(true);
         InputController.Instance.TileClicked += PieceClicked;
     }
 
     public override void Exit()
     {
+        SetColliders(false);
         InputController.Instance.TileClicked -= PieceClicked;
+    }
+
+    private void SetColliders(bool state)
+    {
+        foreach (var boxCollider2D in Machine.CurrentlyPlaying.GetComponentsInChildren<BoxCollider2D>())
+        {
+            boxCollider2D.enabled = state;
+        }
     }
 
     private void PieceClicked(object sender, object args)
