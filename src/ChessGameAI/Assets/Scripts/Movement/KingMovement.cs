@@ -7,6 +7,11 @@ using System;
 
 public class KingMovement : Movement
 {
+    public KingMovement()
+    {
+        PieceWeight = 1000;
+    }
+
     public override List<Tile> GetValidMoves()
     {        
         var moves = new List<Tile>();

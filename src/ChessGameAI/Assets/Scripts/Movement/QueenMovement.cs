@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class QueenMovement : Movement
 {
+    public QueenMovement()
+    {
+        PieceWeight = 9;
+    }
+
     public override List<Tile> GetValidMoves()
     {
         var moves = new List<Tile>();

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class RookMovement : Movement
 {
+    public RookMovement()
+    {
+        PieceWeight = 5;
+    }
+
     public override List<Tile> GetValidMoves()
     {
         var moves = new List<Tile>();

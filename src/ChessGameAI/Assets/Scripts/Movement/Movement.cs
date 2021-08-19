@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Movement
 {
+    public int PieceWeight;
     public abstract List<Tile> GetValidMoves();
     protected bool IsEnemy(Tile tile){
 

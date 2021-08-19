@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BishopMovement : Movement
 {
+    public BishopMovement()
+    {
+        PieceWeight = 3;
+    }
+
     public override List<Tile> GetValidMoves()
     {
         var moves = new List<Tile>();        

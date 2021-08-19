@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class PawnMovement : Movement
 {
+    public PawnMovement()
+    {
+        PieceWeight = 1;
+    }
+
     public override List<Tile> GetValidMoves()
     {        
         var direction = GetDirection();
