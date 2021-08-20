@@ -16,7 +16,12 @@ public class AIController : MonoBehaviour
     public void CalculatePly(){
 
         CurrentState = CreateSnapshot();
+        CurrentState.Name = "Start";
         EvaluateBoard(CurrentState);
+        var currentPly = CurrentState;
+        currentPly.OriginPly = null;
+        currentPly.FuturePlies = new List<Ply>();
+        Debug.Log("Início");
     }
 
     //[ContextMenu("Create Snapshot")]
@@ -74,5 +79,24 @@ public class AIController : MonoBehaviour
         pe.AvailableMoves =tiles.Count;
         pe.Score = pe.Piece.Movement.PieceWeight;
         ply.Score += pe.Score * scoreDirection;
+    }
+
+    [ContextMenu("Reset Board")]
+    private void ResetBoard(){
+
+        CurrentState.AffectedPieces = PieceMovementState.AffectedPieces;
+        ResetBoard(CurrentState);
+    }
+
+    private void ResetBoard(Ply ply){
+
+        foreach (var ap in ply.AffectedPieces)
+        {
+            ap.Piece.tile.content = null;
+            ap.Piece.tile = ap.From;
+            ap.From.content = ap.Piece;
+            ap.Piece.transform.position = new Vector3(ap.From.pos.x, ap.From.pos.y, 0);
+            ap.Piece.gameObject.SetActive(true);
+        }
     }
 }
