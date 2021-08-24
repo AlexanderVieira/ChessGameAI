@@ -13,21 +13,24 @@ public class PieceMovementState : State
     public static List<AffectedPiece> AffectedPieces;
     public override async void EnterAsync()
     {
-        Debug.Log("Piece Movement State.");        
+        Debug.Log("Piece Movement State.");
         var tcs = new TaskCompletionSource<bool>();
-        ClearEnPassant();
-        MovePiece(tcs, false);        
+        var moveType = Board.Instance.SelectedHighlight.Tile.MoveType;
+        //ClearEnPassant();
+        MovePiece(tcs, false, moveType);
         //await tcs.Task;
         await Task.Delay(100);
         Machine.ChangeTo<TurnEndState>();
     }
 
-    private void MovePiece(TaskCompletionSource<bool> tcs, bool skipMovement)
+    public static void MovePiece(TaskCompletionSource<bool> tcs, bool skipMovement, MoveType moveType)
     {
         AffectedPieces = new List<AffectedPiece>();
-        var moveType = Board.Instance.SelectedHighlight.Tile.MoveType;
+        
+        Debug.Log("MoveType: " + moveType);
         //ClearEnPassant();
-        switch(moveType){
+        switch (moveType)
+        {
 
             case MoveType.Normal:
                 NormalMove(tcs, skipMovement);
@@ -47,41 +50,48 @@ public class PieceMovementState : State
         }
     }
 
-    private async void Promotion(TaskCompletionSource<bool> tcs, bool skipMovement)
+    private static async void Promotion(TaskCompletionSource<bool> tcs, bool skipMovement)
     {
         Debug.Log("Pawn Promotion");
         var movementTCS = new TaskCompletionSource<bool>();
         NormalMove(movementTCS, skipMovement);
         await movementTCS.Task;
-        
         //NormalMove();
         //await Task.Delay(100);
         
-        StateMachineController.Instance.TaskHold = new TaskCompletionSource<object>();
-        StateMachineController.Instance.PromotionPanel.SetActive(true);
-        await StateMachineController.Instance.TaskHold.Task;
-        
-        var result = StateMachineController.Instance.TaskHold.Task.Result as string;
-        //Debug.Log(result);
-        if (result == "Knight")
+        if (!skipMovement)
         {
-            Debug.Log(result);
-            Board.Instance.SelectedPiece.Movement = new KnightMovement();
-        }else
-        {
-            Board.Instance.SelectedPiece.Movement = new QueenMovement();
+            StateMachineController.Instance.TaskHold = new TaskCompletionSource<object>();
+            StateMachineController.Instance.PromotionPanel.SetActive(true);
+            await StateMachineController.Instance.TaskHold.Task;
+
+            var result = StateMachineController.Instance.TaskHold.Task.Result as string;
+            //Debug.Log(result);
+            if (result == "Knight")
+            {
+                Debug.Log(result);
+                Board.Instance.SelectedPiece.Movement = new KnightMovement();
+            }
+            else
+            {
+                Board.Instance.SelectedPiece.Movement = new QueenMovement();
+            }
+            StateMachineController.Instance.PromotionPanel.SetActive(false);            
         }
-        StateMachineController.Instance.PromotionPanel.SetActive(false); 
-        tcs.SetResult(true);       
+        else
+        {
+            //to do
+        }
+        tcs.SetResult(true);
     }
 
-    private void ClearEnPassant()
+    private static void ClearEnPassant()
     {
         ClearEnPassant(5);
         ClearEnPassant(2);
     }
 
-    private void ClearEnPassant(int height)
+    private static void ClearEnPassant(int height)
     {
         var position = new Vector2Int(0, height);
         for (int i = 0; i < 7; i++)
@@ -91,27 +101,31 @@ public class PieceMovementState : State
         }
     }
 
-    private void EnPassant(TaskCompletionSource<bool> tcs, bool skipMovement)
+    private static void EnPassant(TaskCompletionSource<bool> tcs, bool skipMovement)
     {
+        Debug.Log("EnPassant:");
         var pawn = Board.Instance.SelectedPiece;
-        var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ? new Vector2Int(0, 1) : new Vector2Int(0, -1);
+        var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ?
+                        new Vector2Int(0, 1) : new Vector2Int(0, -1);
         Debug.Log("En Passant:" + Board.Instance.SelectedHighlight.Tile.pos + direction);
         var enemy = Board.Instance.Tiles[Board.Instance.SelectedHighlight.Tile.pos + direction];
         enemy.content.gameObject.SetActive(false);
         enemy.content = null;
+        //ClearEnPassant();
         NormalMove(tcs, skipMovement);
     }
 
-    private void PawnDoubleMove(TaskCompletionSource<bool> tcs, bool skipMovement)
+    private static void PawnDoubleMove(TaskCompletionSource<bool> tcs, bool skipMovement)
     {
+        Debug.Log("PawnDoubleMove:");
         var pawn = Board.Instance.SelectedPiece;
-        var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ? 
+        var direction = pawn.tile.pos.y > Board.Instance.SelectedHighlight.Tile.pos.y ?
                         new Vector2Int(0, -1) : new Vector2Int(0, 1);
         Board.Instance.Tiles[pawn.tile.pos + direction].MoveType = MoveType.EnPassant;
         NormalMove(tcs, skipMovement);
     }
 
-    private void Castling(TaskCompletionSource<bool> tcs, bool skipMovement)
+    private static void Castling(TaskCompletionSource<bool> tcs, bool skipMovement)
     {
         var king = Board.Instance.SelectedPiece;
         king.tile.content = null;
@@ -123,9 +137,10 @@ public class PieceMovementState : State
         {
             king.tile = Board.Instance.Tiles[new Vector2Int(king.tile.pos.x + 2, king.tile.pos.y)];
             rook.tile = Board.Instance.Tiles[new Vector2Int(king.tile.pos.x - 1, rook.tile.pos.y)];
-        }else
+        }
+        else
         {
-            king.tile = Board.Instance.Tiles[new Vector2Int(king.tile.pos.x -2, king.tile.pos.y)];
+            king.tile = Board.Instance.Tiles[new Vector2Int(king.tile.pos.x - 2, king.tile.pos.y)];
             rook.tile = Board.Instance.Tiles[new Vector2Int(king.tile.pos.x + 1, rook.tile.pos.y)];
         }
 
@@ -146,9 +161,10 @@ public class PieceMovementState : State
         // LeanTween.move(rook.gameObject, new Vector3(rook.tile.pos.x, rook.tile.pos.y, 0), 1.4f);
     }
 
-    private void NormalMove(TaskCompletionSource<bool> tcs , bool skipMovement){
-        
-        var piece = Board.Instance.SelectedPiece;
+    private static void NormalMove(TaskCompletionSource<bool> tcs, bool skipMovement)
+    {
+
+        var piece = Board.Instance.SelectedPiece as Piece;
         var pieceMoving = new AffectedPiece();
         pieceMoving.Piece = piece;
         pieceMoving.From = piece.tile;
@@ -167,13 +183,16 @@ public class PieceMovementState : State
             deadPiece.gameObject.SetActive(false);
         }
         piece.tile.content = piece;
-        piece.WasMoved = true;
-
-        if (!skipMovement)
+        //var pos = Board.Instance.SelectedHighlight.Tile.pos;
+        //var moveType = Board.Instance.Tiles[pos].MoveType;
+        //Debug.Log("NormalMove - MoveType: " + moveType);
+        //if (!skipMovement && (moveType.ToString() != "EnPassant") && (moveType.ToString() != "PawnDoubleMove"))
+        if (skipMovement)
         {
             piece.transform.position = Board.Instance.SelectedHighlight.transform.position;
             tcs.SetResult(true);
-        }else
+        }
+        else
         {
             //var timing = Vector3.Distance(piece.transform.position, Board.Instance.SelectedHighlight.transform.position) * 0.5f;
             // LeanTween.move(piece.gameObject, Board.Instance.SelectedHighlight.transform.position, timing)
@@ -181,9 +200,11 @@ public class PieceMovementState : State
             //     { 
             //         tcs.SetResult(true); 
             //     });
+            piece.WasMoved = true;
+            //ClearEnPassant();
+            Debug.Log("SkipMovement");
+            piece.transform.position = Board.Instance.SelectedHighlight.transform.position;
             tcs.SetResult(true);
         }
-                 
     }
-   
 }

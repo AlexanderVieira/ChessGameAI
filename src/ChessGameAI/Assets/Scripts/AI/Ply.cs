@@ -13,5 +13,7 @@ public class Ply
     public MoveType MoveType;
     public Ply OriginPly;
     public List<Ply> FuturePlies;
+    public Ply BestFuture;
+    //public AvailableMove EnPassantFlag;
 
 }

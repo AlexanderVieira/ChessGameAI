@@ -17,7 +17,7 @@ public class KnightMovement : Movement
         moves.AddRange(GetStraightMovement(new Vector2Int(0, -1)));
         moves.AddRange(GetStraightMovement(new Vector2Int(1, 0)));
         moves.AddRange(GetStraightMovement(new Vector2Int(-1, 0)));
-        SetNormalMove(moves);
+        //SetNormalMove(moves);
         return moves;
     }
 
@@ -33,7 +33,7 @@ public class KnightMovement : Movement
         return moves;
     }
 
-    private IEnumerable<Tile> GetCurveMovement(Vector2Int pos, Vector2Int direction)
+    private List<Tile> GetCurveMovement(Vector2Int pos, Vector2Int direction)
     {
         var tiles = new List<Tile>();
         var tileA = GetTile(pos + direction);

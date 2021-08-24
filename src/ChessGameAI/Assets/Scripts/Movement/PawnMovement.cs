@@ -49,7 +49,7 @@ public class PawnMovement : Movement
 
     private Vector2Int GetDirection()
     {
-        if (StateMachineController.Instance.CurrentlyPlaying.transform.name == "GreenPieces")
+        if (Board.Instance.SelectedPiece.transform.parent.name == "GreenPieces")
         {
             return new Vector2Int(0, -1);
         }
