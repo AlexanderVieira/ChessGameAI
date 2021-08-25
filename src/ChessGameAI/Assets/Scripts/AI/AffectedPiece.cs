@@ -6,7 +6,8 @@ public class AffectedPiece
 {
     public Piece Piece;
     public Tile From;
-    public Tile to;
+    public Tile To;
+    public bool WasMoved;
     public virtual void Undo(){
         
         Piece.tile.content = null;

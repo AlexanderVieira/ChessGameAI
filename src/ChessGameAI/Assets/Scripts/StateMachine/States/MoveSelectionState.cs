@@ -32,12 +32,8 @@ public class MoveSelectionState : State
         if (highlight == null)
         {
             return;
-        }
-        var v3Pos = highlight.transform.position;
-        var pos = new Vector2Int((int)v3Pos.x, (int)v3Pos.y);
-        Tile tileClicked = highlight.Tile;
-        Debug.Log("MoveSelectState: " + tileClicked.pos);
-        Board.Instance.SelectedHighlight = highlight;
+        }        
+        Board.Instance.SelectedMove = highlight.AvailableMove;
         Machine.ChangeTo<PieceMovementState>();
 
     }

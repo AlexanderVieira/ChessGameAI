@@ -11,8 +11,10 @@ public class AIController : MonoBehaviour
     public HighlightClick AIHighlight;
     public Ply MinPly;
     public Ply MaxPly;
-    public int GoalPlyDepth = 4;
+    public int GoalPlyDepth = 2;
+    public AvailableMove EnPassantFlagSaved;
     private int _calculationCount;
+    private float _lastTime;
     private void Awake(){
 
         Instance = this;
@@ -21,45 +23,42 @@ public class AIController : MonoBehaviour
     [ContextMenu("Calculate Plays")]
     public async void CalculatePlays(){
 
+        _lastTime = Time.realtimeSinceStartup;
         int minimaxDirection = 1;
+        EnPassantFlagSaved = PieceMovementState.EnPassantFlag;
         CurrentState = CreateSnapshot();
         CurrentState.Name = "Start";
         _calculationCount = 0;
-        //EvaluateBoard(CurrentState);
+        
         var currentPly = CurrentState;
         currentPly.OriginPly = null;
         int currentPlyDepth = 0;
         currentPly.AffectedPieces = new List<AffectedPiece>();
 
         Debug.Log("Start");
-        Task<Ply> calculation = CalculatePly(currentPly, GetKingdom(currentPly, minimaxDirection), currentPlyDepth, minimaxDirection);
+        var calculation = CalculatePly(currentPly, GetKingdom(currentPly, minimaxDirection), currentPlyDepth, minimaxDirection);
         await calculation;
         currentPly.BestFuture = calculation.Result;
 
         Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
         Debug.Log("Calculations: " + _calculationCount);
+        Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
+        PrintBestPly(currentPly.BestFuture);
+        PieceMovementState.EnPassantFlag = EnPassantFlagSaved;
+    }
 
-        // currentPly.FuturePlies = new List<Ply>();
-        // MinPly = new Ply()
-        // { 
-        //     Score = float.MaxValue
-        // };
-        // MaxPly = new Ply()
-        // {
-        //     Score = float.MinValue
-        // };
-        // Debug.Log("Start");
-        // int currentPlyDepth = 1;
-        // CalculatePly(currentPly, currentPly.Goldens, currentPlyDepth);
-        // currentPlyDepth++;
-        // foreach (var cfp in currentPly.FuturePlies)
-        // {
-        //     CalculatePly(cfp, cfp.Greens, currentPlyDepth);
-        // }
-        // Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}", MaxPly.Name);       
-        // Debug.Log("Number future Plies: " + currentPly.FuturePlies.Count);
-        // currentPly.FuturePlies.Sort((x, y) => x.Score.CompareTo(y.Score));
-        // Debug.Log("Would choose: " + currentPly.FuturePlies[currentPly.FuturePlies.Count - 1].Name);
+    private void PrintBestPly(Ply bestFuture)
+    {
+        var currentPly = bestFuture;
+        Debug.Log("Melhor jogada: ");
+        while (currentPly.OriginPly != null)
+        {
+            Debug.LogFormat("{0}{1}->{2}", 
+            currentPly.AffectedPieces[0].Piece.transform.parent.name,
+            currentPly.AffectedPieces[0].Piece.name,
+            currentPly.AffectedPieces[0].To.pos);
+            currentPly = currentPly.OriginPly;
+        }
     }
 
     private List<PieceEvaluation> GetKingdom(Ply ply, int minimaxDirection)
@@ -80,7 +79,9 @@ public class AIController : MonoBehaviour
         currentPlyDepth++;
         if (currentPlyDepth > GoalPlyDepth)
         {
-            EvaluateBoard(parentPly);
+            //EvaluateBoard(parentPly);
+            var evalTask = Task.Run(() => EvaluateBoard(parentPly));
+            await evalTask;
             return parentPly;
         }
         var plyceHolder = new Ply()
@@ -91,39 +92,38 @@ public class AIController : MonoBehaviour
         
         foreach (var pe in Kingdom)
         {
-            Debug.Log("Analisando peças " + pe.Piece);
-            foreach (var tile in pe.AvailableMoves)
+            //Debug.Log("Analisando peças " + pe.Piece);
+            foreach (var availableMove in pe.AvailableMoves)
             {
-                Debug.Log("Analisando movimentos: " + tile.pos);
+                //Debug.Log("Analisando movimentos: " + tile.pos);
                 _calculationCount++;
                 Board.Instance.SelectedPiece = pe.Piece;
-                Board.Instance.SelectedHighlight = AIHighlight;
-                AIHighlight.Tile = tile;
-                AIHighlight.transform.position = new Vector3(tile.pos.x, tile.pos.y, 0);
+                Board.Instance.SelectedMove = availableMove;
+                //Board.Instance.SelectedHighlight = AIHighlight;
+                //AIHighlight.Tile = tile;
+                //AIHighlight.transform.position = new Vector3(tile.pos.x, tile.pos.y, 0);
                 var tcs = new TaskCompletionSource<bool>();
-                PieceMovementState.MovePiece(tcs, true, tile.MoveType);
+                PieceMovementState.MovePiece(tcs, true, availableMove.MoveType);
                 await tcs.Task;
                 
-                var newPly = CreateSnapshot();
-                newPly.Name = string.Format("{0}, {1} to {2}", parentPly.Name, pe.Piece.transform.parent.name + "-" + pe.Piece.name , tile.pos);
+                var newPly = CreateSnapshot(parentPly);
+                //newPly.Name = string.Format("{0}, {1} to {2}", parentPly.Name, pe.Piece.transform.parent.name + "-" + pe.Piece.name , tile.pos);
                 newPly.AffectedPieces = PieceMovementState.AffectedPieces;
+                newPly.EnPassantFlag = PieceMovementState.EnPassantFlag;
                 //Debug.Log("Ply Name: " + newPly.Name);
                 //EvaluateBoard(newPly);
-                var calculation = CalculatePly(newPly, GetKingdom(newPly,minimaxDirection * -1), currentPlyDepth, minimaxDirection * -1);
+                var nextKingdom = GetKingdom(newPly,minimaxDirection * -1);
+                var calculation = CalculatePly(newPly, nextKingdom, currentPlyDepth, minimaxDirection * -1);
                 await calculation;
                 parentPly.BestFuture = IsBest(parentPly.BestFuture, minimaxDirection, calculation.Result);
-
-                newPly.MoveType = tile.MoveType;
+                //newPly.MoveType = tile.MoveType;
                 newPly.OriginPly = parentPly;
                 parentPly.FuturePlies.Add(newPly);
+                PieceMovementState.EnPassantFlag = parentPly.EnPassantFlag;
                 ResetBoard(newPly);
             }
         }
-        return parentPly.BestFuture;
-        // if (currentPlyDepth == GoalPlyDepth)
-        // {
-        //     SetMinMax(parentPly.FuturePlies);
-        // }
+        return parentPly.BestFuture;        
     }
 
     private Ply IsBest(Ply ply, int minimaxDirection, Ply potencialBest)
@@ -188,6 +188,30 @@ public class AIController : MonoBehaviour
         return ply;
     }
 
+    private Ply CreateSnapshot(Ply parentPly){
+
+        var ply = new Ply();
+        ply.Greens = new List<PieceEvaluation>();
+        ply.Goldens = new List<PieceEvaluation>();
+
+        foreach (var pe in parentPly.Goldens)
+        {
+            if (pe.Piece.gameObject.activeSelf)
+            {
+                ply.Goldens.Add(CreateEvaluationPiece(pe.Piece, ply));
+            }
+        }
+
+        foreach (var pe in parentPly.Greens)
+        {
+            if (pe.Piece.gameObject.activeSelf)
+            {
+                ply.Greens.Add(CreateEvaluationPiece(pe.Piece, ply));
+            }
+        }
+        return ply;
+    }
+
     private PieceEvaluation CreateEvaluationPiece(Piece piece, Ply ply)
     {
         var pe = new PieceEvaluation();
@@ -216,8 +240,8 @@ public class AIController : MonoBehaviour
     {
         // Board.Instance.SelectedPiece = pe.Piece;
         // pe.AvailableMoves = pe.Piece.Movement.GetValidMoves();         
-        pe.Score = pe.Piece.Movement.PieceWeight;
-        ply.Score += pe.Score * scoreDirection;
+        //pe.Score = pe.Piece.Movement.PieceWeight;
+        ply.Score += pe.Piece.Movement.PieceWeight * scoreDirection;
     }
 
     // [ContextMenu("Reset Board")]

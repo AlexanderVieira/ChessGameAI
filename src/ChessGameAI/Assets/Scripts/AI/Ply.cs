@@ -9,11 +9,11 @@ public class Ply
     public List<PieceEvaluation> Goldens;
     public List<PieceEvaluation> Greens;
     public List<AffectedPiece> AffectedPieces;
-    public float Score;
+    public int Score;
     public MoveType MoveType;
     public Ply OriginPly;
     public List<Ply> FuturePlies;
     public Ply BestFuture;
-    //public AvailableMove EnPassantFlag;
+    public AvailableMove EnPassantFlag;
 
 }

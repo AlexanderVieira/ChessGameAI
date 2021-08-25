@@ -12,9 +12,9 @@ public class KingMovement : Movement
         PieceWeight = 1000;
     }
 
-    public override List<Tile> GetValidMoves()
+    public override List<AvailableMove> GetValidMoves()
     {        
-        var moves = new List<Tile>();
+        var moves = new List<AvailableMove>();
         moves.AddRange(UntilBlockedPath(new Vector2Int(1, 0), true, 1));
         moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 0), true, 1));
 
@@ -25,31 +25,29 @@ public class KingMovement : Movement
         moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 1), true, 1));
         moves.AddRange(UntilBlockedPath(new Vector2Int(1, -1), true, 1));
         moves.AddRange(UntilBlockedPath(new Vector2Int(1, 1), true, 1));
-        SetNormalMove(moves);
+        //SetNormalMove(moves);
         moves.AddRange(Castling());
         return moves;
     }
 
-    private List<Tile> Castling()
+    private List<AvailableMove> Castling()
     {
-        var moves = new List<Tile>();
+        var availableMoves = new List<AvailableMove>();
         if (Board.Instance.SelectedPiece.GetComponent<King>().WasMoved)
         {
-            return moves;
+            return availableMoves;
         }
         var tile = CheckRook(new Vector2Int(1, 0));
         if (tile != null)
         {
-            moves.Add(tile);
-            tile.MoveType = MoveType.Castling;
+            availableMoves.Add(new AvailableMove(tile.pos, MoveType.Castling));            
         }
         tile = CheckRook(new Vector2Int(-1, 0));
         if (tile != null)
         {
-            moves.Add(tile);
-            tile.MoveType = MoveType.Castling;
+            availableMoves.Add(new AvailableMove(tile.pos, MoveType.Castling));            
         }
-        return moves;
+        return availableMoves;
     }
 
     private Tile CheckRook(Vector2Int direction)

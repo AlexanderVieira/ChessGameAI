@@ -10,9 +10,9 @@ public class KnightMovement : Movement
         PieceWeight = 3;
     }
 
-    public override List<Tile> GetValidMoves()
+    public override List<AvailableMove> GetValidMoves()
     {
-        var moves = new List<Tile>();
+        var moves = new List<AvailableMove>();
         moves.AddRange(GetStraightMovement(new Vector2Int(0, 1)));
         moves.AddRange(GetStraightMovement(new Vector2Int(0, -1)));
         moves.AddRange(GetStraightMovement(new Vector2Int(1, 0)));
@@ -21,9 +21,9 @@ public class KnightMovement : Movement
         return moves;
     }
 
-    private List<Tile> GetStraightMovement(Vector2Int direction)
+    private List<AvailableMove> GetStraightMovement(Vector2Int direction)
     {
-        var moves = new List<Tile>();
+        var moves = new List<AvailableMove>();
         var current = Board.Instance.SelectedPiece.tile;
         var aux = GetTile(current.pos + direction * 2);
         if (aux != null)
@@ -33,19 +33,19 @@ public class KnightMovement : Movement
         return moves;
     }
 
-    private List<Tile> GetCurveMovement(Vector2Int pos, Vector2Int direction)
+    private List<AvailableMove> GetCurveMovement(Vector2Int pos, Vector2Int direction)
     {
-        var tiles = new List<Tile>();
+        var availableMoves = new List<AvailableMove>();
         var tileA = GetTile(pos + direction);
         var tileB = GetTile(pos - direction);
         if (tileA != null && (tileA.content == null || IsEnemy(tileA)))
         {
-            tiles.Add(tileA);            
+            availableMoves.Add(new AvailableMove(tileA.pos));            
         }
         if (tileB != null && (tileB.content == null || IsEnemy(tileB)))
         {
-            tiles.Add(tileB);
+            availableMoves.Add(new AvailableMove(tileB.pos));
         }
-        return tiles;
+        return availableMoves;
     }
 }

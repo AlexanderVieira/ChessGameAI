@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AIHighlight: {fileID: 537777293}
-  GoalPlyDepth: 2
+  GoalPlyDepth: 1
 --- !u!4 &1168924932
 Transform:
   m_ObjectHideFlags: 0

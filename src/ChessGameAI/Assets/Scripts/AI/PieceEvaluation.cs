@@ -5,7 +5,7 @@ using UnityEngine;
 public class PieceEvaluation
 {
     public Piece Piece;
-    public List<Tile> AvailableMoves;
+    public List<AvailableMove> AvailableMoves;
     public int Defending;
     public int Attcking;
     public float Score;

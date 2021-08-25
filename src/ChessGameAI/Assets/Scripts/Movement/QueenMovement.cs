@@ -9,9 +9,9 @@ public class QueenMovement : Movement
         PieceWeight = 9;
     }
 
-    public override List<Tile> GetValidMoves()
+    public override List<AvailableMove> GetValidMoves()
     {
-        var moves = new List<Tile>();
+        var moves = new List<AvailableMove>();
         moves.AddRange(UntilBlockedPath(new Vector2Int(1, 0), true, 99));
         moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 0), true, 99));
 
@@ -22,7 +22,7 @@ public class QueenMovement : Movement
         moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 1), true, 99));
         moves.AddRange(UntilBlockedPath(new Vector2Int(1, -1), true, 99));
         moves.AddRange(UntilBlockedPath(new Vector2Int(1, 1), true, 99));
-        SetNormalMove(moves);
+        //SetNormalMove(moves);
         return moves;
     }
 }

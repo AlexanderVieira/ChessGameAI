@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Movement
 {
     public int PieceWeight;
-    public abstract List<Tile> GetValidMoves();
+    public abstract List<AvailableMove> GetValidMoves();
     protected bool IsEnemy(Tile tile){
 
         if (tile.content != null && tile.content.transform.parent != Board.Instance.SelectedPiece.transform.parent)
@@ -21,9 +21,9 @@ public abstract class Movement
         Board.Instance.Tiles.TryGetValue(position, out tile);
         return tile;
     }
-    protected List<Tile> UntilBlockedPath(Vector2Int direction, bool includeBlocked, int limit){
+    protected List<AvailableMove> UntilBlockedPath(Vector2Int direction, bool includeBlocked, int limit){
 
-        var moves = new List<Tile>();
+        var moves = new List<AvailableMove>();
         var current = Board.Instance.SelectedPiece.tile;
         while (current != null && moves.Count < limit)
         {
@@ -31,13 +31,13 @@ public abstract class Movement
             {
                 if (current.content == null)
                 {
-                    moves.Add(current);
+                    moves.Add(new AvailableMove(current.pos));
 
                 }else if(IsEnemy(current))
                 {
                     if (includeBlocked)
                     {
-                        moves.Add(current);
+                        moves.Add(new AvailableMove(current.pos));
                     }
                     return moves;
 
@@ -50,11 +50,11 @@ public abstract class Movement
         return moves;       
     }
 
-    protected void SetNormalMove(List<Tile> tiles){
+    // protected void SetNormalMove(List<Tile> tiles){
 
-        foreach (var tile in tiles)
-        {
-            tile.MoveType = MoveType.Normal;
-        }
-    }
+    //     foreach (var tile in tiles)
+    //     {
+    //         tile.MoveType = MoveType.Normal;
+    //     }
+    // }
 }

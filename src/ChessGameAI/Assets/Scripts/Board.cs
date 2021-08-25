@@ -23,6 +23,7 @@ public class Board : MonoBehaviour
     //public TileClickedEvent TileClicked = delegate{};
     public Piece SelectedPiece;
     public HighlightClick SelectedHighlight;
+    public AvailableMove SelectedMove;
 
     void Awake(){
         Instance = this;
