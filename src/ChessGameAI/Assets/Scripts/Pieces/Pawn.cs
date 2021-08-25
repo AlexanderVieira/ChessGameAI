@@ -5,11 +5,23 @@ using UnityEngine;
 
 public class Pawn : Piece
 {
+    public Movement SavedMovement;
+    public Movement QueenMovement = new QueenMovement();
+    public Movement KnightMovement = new KnightMovement();
    protected override void Start(){
 
        base.Start();
        Movement = new PawnMovement(GetDirection());
+       SavedMovement = new PawnMovement(GetDirection());
    }
+   public override AffectedPiece CreateAffected()
+    {
+        var afp = new AffectedPawn
+        {
+            WasMoved = WasMoved
+        };
+        return afp;
+    }
 
     private Vector2Int GetDirection()
     {

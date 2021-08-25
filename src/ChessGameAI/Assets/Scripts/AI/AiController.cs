@@ -18,6 +18,14 @@ public class AIController : MonoBehaviour
     private void Awake(){
 
         Instance = this;
+        MaxPly = new Ply
+        {
+            Score = 999999
+        };
+        MinPly = new Ply
+        {
+            Score = -999999
+        };
     }
 
     [ContextMenu("Calculate Plays")]
@@ -84,11 +92,21 @@ public class AIController : MonoBehaviour
             await evalTask;
             return parentPly;
         }
-        var plyceHolder = new Ply()
+
+        if (minimaxDirection == 1)
         {
-            Score = -99999 * minimaxDirection
-        };
-        parentPly.BestFuture = plyceHolder;
+            parentPly.BestFuture = MinPly;
+        }
+        else
+        {
+            parentPly.BestFuture = MaxPly;
+        }
+
+        // var plyceHolder = new Ply
+        // {
+        //     Score = -99999 * minimaxDirection
+        // };
+        // parentPly.BestFuture = plyceHolder;
         
         foreach (var pe in Kingdom)
         {
@@ -255,11 +273,12 @@ public class AIController : MonoBehaviour
 
         foreach (var ap in ply.AffectedPieces)
         {
-            ap.Piece.tile.content = null;
-            ap.Piece.tile = ap.From;
-            ap.From.content = ap.Piece;
-            ap.Piece.transform.position = new Vector3(ap.From.pos.x, ap.From.pos.y, 0);
-            ap.Piece.gameObject.SetActive(true);
+            ap.Undo();
+            // ap.Piece.tile.content = null;
+            // ap.Piece.tile = ap.From;
+            // ap.From.content = ap.Piece;
+            // ap.Piece.transform.position = new Vector3(ap.From.pos.x, ap.From.pos.y, 0);
+            // ap.Piece.gameObject.SetActive(true);
         }
     }
 }
