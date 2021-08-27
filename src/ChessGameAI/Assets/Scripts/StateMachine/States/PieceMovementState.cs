@@ -6,6 +6,7 @@ public class PieceMovementState : State
 {
     public static List<AffectedPiece> AffectedPieces = new List<AffectedPiece>();
     public static AvailableMove EnPassantFlag;
+    private const string PIECE = "Knight";
     public override async void EnterAsync()
     {
         Debug.Log("Piece Movement State.");
@@ -70,7 +71,7 @@ public class PieceMovementState : State
         
         if (skipMovement)
         {
-            //piece.WasMoved = true;
+            piece.WasMoved = true;
             //piece.transform.position = Board.Instance.SelectedHighlight.transform.position;
             var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
             piece.transform.position = Vector3Pos;
@@ -156,10 +157,6 @@ public class PieceMovementState : State
         king.WasMoved = true;
         rook.WasMoved = true;
 
-        // king.transform.position = new Vector3(king.tile.pos.x, king.tile.pos.y, 0);
-        // rook.transform.position = new Vector3(rook.tile.pos.x, rook.tile.pos.y, 0);
-        // tcs.SetResult(true);
-
         if (skipMovement)
         {
             tcs.SetResult(true);
@@ -190,7 +187,7 @@ public class PieceMovementState : State
             await StateMachineController.Instance.TaskHold.Task;
             var result = StateMachineController.Instance.TaskHold.Task.Result as string;
             
-            if (result == "Knight")
+            if (result == PIECE)
             {                
                 Board.Instance.SelectedPiece.Movement = pawn.KnightMovement;
             }

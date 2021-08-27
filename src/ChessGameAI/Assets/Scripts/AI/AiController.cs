@@ -16,7 +16,7 @@ public class AIController : MonoBehaviour
     private int _calculationCount;
     private float _lastTime;
     private void Awake(){
-
+        //TO DO: Verificar se a instância é nula.
         Instance = this;
         MaxPly = new Ply
         {
@@ -32,7 +32,15 @@ public class AIController : MonoBehaviour
     public async void CalculatePlays(){
 
         _lastTime = Time.realtimeSinceStartup;
-        int minimaxDirection = 1;
+        int minimaxDirection;
+        if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
+        {
+            minimaxDirection = 1;
+        }
+        else
+        {
+            minimaxDirection = -1;
+        }
         EnPassantFlagSaved = PieceMovementState.EnPassantFlag;
         CurrentState = CreateSnapshot();
         CurrentState.Name = "Start";
@@ -48,7 +56,7 @@ public class AIController : MonoBehaviour
         await calculation;
         currentPly.BestFuture = calculation.Result;
 
-        Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
+        //Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
         Debug.Log("Calculations: " + _calculationCount);
         Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
         PrintBestPly(currentPly.BestFuture);
@@ -61,7 +69,7 @@ public class AIController : MonoBehaviour
         Debug.Log("Melhor jogada: ");
         while (currentPly.OriginPly != null)
         {
-            Debug.LogFormat("{0}{1}->{2}", 
+            Debug.LogFormat("Kingdom {0}: {1} -> Position: {2}", 
             currentPly.AffectedPieces[0].Piece.transform.parent.name,
             currentPly.AffectedPieces[0].Piece.name,
             currentPly.AffectedPieces[0].To.pos);
@@ -101,12 +109,6 @@ public class AIController : MonoBehaviour
         {
             parentPly.BestFuture = MaxPly;
         }
-
-        // var plyceHolder = new Ply
-        // {
-        //     Score = -99999 * minimaxDirection
-        // };
-        // parentPly.BestFuture = plyceHolder;
         
         foreach (var pe in Kingdom)
         {
@@ -131,9 +133,9 @@ public class AIController : MonoBehaviour
                 //Debug.Log("Ply Name: " + newPly.Name);
                 //EvaluateBoard(newPly);
                 var nextKingdom = GetKingdom(newPly,minimaxDirection * -1);
-                var calculation = CalculatePly(newPly, nextKingdom, currentPlyDepth, minimaxDirection * -1);
-                await calculation;
-                parentPly.BestFuture = IsBest(parentPly.BestFuture, minimaxDirection, calculation.Result);
+                var calculation = await CalculatePly(newPly, nextKingdom, currentPlyDepth, minimaxDirection * -1);
+                //await calculation;
+                parentPly.BestFuture = IsBest(parentPly.BestFuture, minimaxDirection, calculation);
                 //newPly.MoveType = tile.MoveType;
                 newPly.OriginPly = parentPly;
                 parentPly.FuturePlies.Add(newPly);

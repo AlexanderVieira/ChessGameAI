@@ -5,11 +5,28 @@ using UnityEngine;
 
 public class PawnMovement : Movement
 {
-    public Vector2Int Direction;
-    public PawnMovement(Vector2Int rcvDirection)
-    {
-        Direction = rcvDirection;
+    private Vector2Int _direction;
+    public int _promotionHeight;
+
+    // public PawnMovement(Vector2Int rcvDirection)
+    // {
+    //     Direction = rcvDirection;
+    //     PieceWeight = 1;
+    // }
+
+    public PawnMovement(bool MaxKingdom)
+    {        
         PieceWeight = 1;
+        if (MaxKingdom)
+        {
+            _direction = new Vector2Int(0, 1);
+            _promotionHeight = 7;
+        }
+        else
+        {
+            _direction = new Vector2Int(0, -1);
+            _promotionHeight = 0;
+        }
     }
 
     public override List<AvailableMove> GetValidMoves()

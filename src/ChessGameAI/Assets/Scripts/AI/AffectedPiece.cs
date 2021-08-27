@@ -13,7 +13,7 @@ public class AffectedPiece
         Piece.tile.content = null;
         Piece.tile = From;
         From.content = Piece;
-        //Piece.transform.position = new Vector3(From.pos.x, From.pos.y, 0);
+        Piece.transform.position = new Vector3(From.pos.x, From.pos.y, 0);
         Piece.gameObject.SetActive(true);
         
     }

@@ -1085,17 +1085,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88df1746fe3bf0048a50eadb8ef091ed, type: 3}
---- !u!114 &537777293 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7462921153795823471, guid: 88df1746fe3bf0048a50eadb8ef091ed, type: 3}
-  m_PrefabInstance: {fileID: 537777292}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70940233d0a7a0c49b380fe269f2808d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &537942111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2247,7 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d7c79082cb1cc4cbdb9800af7d942e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIHighlight: {fileID: 537777293}
+  AIHighlight: {fileID: 0}
   GoalPlyDepth: 1
 --- !u!4 &1168924932
 Transform:

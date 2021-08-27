@@ -11,8 +11,10 @@ public class Pawn : Piece
    protected override void Start(){
 
        base.Start();
-       Movement = new PawnMovement(GetDirection());
-       SavedMovement = new PawnMovement(GetDirection());
+       Movement = new PawnMovement(MaxKingdom);
+       SavedMovement = new PawnMovement(MaxKingdom);
+       //Movement = new PawnMovement(GetDirection());
+       //SavedMovement = new PawnMovement(GetDirection());
    }
    public override AffectedPiece CreateAffected()
     {
