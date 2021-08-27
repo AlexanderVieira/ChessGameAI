@@ -29,7 +29,7 @@ public class AIController : MonoBehaviour
     }
 
     [ContextMenu("Calculate Plays")]
-    public async void CalculatePlays(){
+    public async Task<Ply> CalculatePlays(){
 
         _lastTime = Time.realtimeSinceStartup;
         int minimaxDirection;
@@ -42,11 +42,10 @@ public class AIController : MonoBehaviour
             minimaxDirection = -1;
         }
         EnPassantFlagSaved = PieceMovementState.EnPassantFlag;
-        CurrentState = CreateSnapshot();
-        CurrentState.Name = "Start";
-        _calculationCount = 0;
-        
-        var currentPly = CurrentState;
+        //CurrentState = CreateSnapshot();
+        //CurrentState.Name = "Start";
+        _calculationCount = 0;        
+        var currentPly = CreateSnapshot();
         currentPly.OriginPly = null;
         int currentPlyDepth = 0;
         currentPly.AffectedPieces = new List<AffectedPiece>();
@@ -61,6 +60,7 @@ public class AIController : MonoBehaviour
         Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
         PrintBestPly(currentPly.BestFuture);
         PieceMovementState.EnPassantFlag = EnPassantFlagSaved;
+        return currentPly.BestFuture;
     }
 
     private void PrintBestPly(Ply bestFuture)
