@@ -8,12 +8,6 @@ public class PawnMovement : Movement
     private Vector2Int _direction;
     public int _promotionHeight;
 
-    // public PawnMovement(Vector2Int rcvDirection)
-    // {
-    //     Direction = rcvDirection;
-    //     PieceWeight = 1;
-    // }
-
     public PawnMovement(bool MaxKingdom)
     {        
         PieceWeight = 1;
@@ -21,52 +15,80 @@ public class PawnMovement : Movement
         {
             _direction = new Vector2Int(0, 1);
             _promotionHeight = 7;
+            PositionValue = AIController.Instance.SquareTable.PawnGolden;
         }
         else
         {
             _direction = new Vector2Int(0, -1);
             _promotionHeight = 0;
+            PositionValue = AIController.Instance.SquareTable.PawnGreen;
         }
     }
 
     public override List<AvailableMove> GetValidMoves()
     {        
-        var direction = GetDirection();
-        var moveable = GetPawnAttack(direction);
+        var moveable = new List<AvailableMove>();
         var moves = new List<AvailableMove>();
+        GetPawnAttack(moveable);
         int limit = 1;
         if (!Board.Instance.SelectedPiece.WasMoved)
         {
             limit = 2;
-            moves = UntilBlockedPath(direction, false, limit);
-            //SetNormalMove(moves);
+            UntilBlockedPath(moves, _direction, false, limit);            
             if (moves.Count == limit)
             {
                 moves[1] = new AvailableMove(moves[1].Pos, MoveType.PawnDoubleMove);
             }
         }else
         {
-            moves = UntilBlockedPath(direction, false, limit);
+            UntilBlockedPath(moves, _direction, false, limit);
             if (moves.Count > 0)
             {
                 moves[0] = CheckPromotion(moves[0]);
-            }
-            //SetNormalMove(moves);
-        }
-        
-        moveable.AddRange(moves);
-        //CheckPromotion(moves);
+            }            
+        }        
+        moveable.AddRange(moves);        
         return moveable;
+    }   
+
+    private Vector2Int GetDirection()
+    {
+        if (Board.Instance.SelectedPiece.transform.parent.name == "GreenPieces")
+        {
+            return new Vector2Int(0, -1);
+        }
+        return new Vector2Int(0, 1);
+    }
+    
+    private void GetPawnAttack(List<AvailableMove> pawnAttack){
+                
+        var piece = Board.Instance.SelectedPiece;
+        var lefPos = new Vector2Int(piece.tile.pos.x - 1, piece.tile.pos.y + _direction.y);
+        var rightPos = new Vector2Int(piece.tile.pos.x + 1, piece.tile.pos.y + _direction.y);
+        GetPawnAttack(GetTile(lefPos), pawnAttack);
+        GetPawnAttack(GetTile(rightPos), pawnAttack);    
+        
     }
 
-    private AvailableMove CheckPromotion(AvailableMove availableMove){
-
-        int promotionHeight = 0;
-        if (Board.Instance.SelectedPiece.MaxKingdom)
+    private void GetPawnAttack(Tile tile, List<AvailableMove> pawAttack)
+    {
+        if (tile == null)
         {
-            promotionHeight = 7;
+            return;
+        }        
+        
+        if (IsEnemy(tile))
+        {            
+            pawAttack.Add(new AvailableMove(tile.pos, MoveType.Normal));
+        }        
+        else if (PieceMovementState.EnPassantFlag.MoveType == MoveType.EnPassant && PieceMovementState.EnPassantFlag.Pos == tile.pos)
+        {            
+            pawAttack.Add(new AvailableMove(tile.pos, MoveType.EnPassant));
         }
-        if (availableMove.Pos.y != promotionHeight)
+    }
+    private AvailableMove CheckPromotion(AvailableMove availableMove){
+       
+        if (availableMove.Pos.y != _promotionHeight)
         {
             return availableMove;
         }
@@ -83,42 +105,4 @@ public class PawnMovement : Movement
             }
         }
     }    
-
-    private Vector2Int GetDirection()
-    {
-        if (Board.Instance.SelectedPiece.transform.parent.name == "GreenPieces")
-        {
-            return new Vector2Int(0, -1);
-        }
-        return new Vector2Int(0, 1);
-    }
-    
-    private List<AvailableMove> GetPawnAttack(Vector2Int direction){
-
-        var pawAttack = new List<AvailableMove>();        
-        var piece = Board.Instance.SelectedPiece;
-        var lefPos = new Vector2Int(piece.tile.pos.x - 1, piece.tile.pos.y + direction.y);
-        var rightPos = new Vector2Int(piece.tile.pos.x + 1, piece.tile.pos.y + direction.y);
-        GetPawnAttack(GetTile(lefPos), pawAttack);
-        GetPawnAttack(GetTile(rightPos), pawAttack);        
-        return pawAttack;
-    }
-
-    private void GetPawnAttack(Tile tile, List<AvailableMove> pawAttack)
-    {
-        if (tile == null)
-        {
-            return;
-        }        
-        
-        if (IsEnemy(tile))
-        {
-            //tile.MoveType = MoveType.Normal;
-            pawAttack.Add(new AvailableMove(tile.pos, MoveType.Normal));
-        }        
-        else if (PieceMovementState.EnPassantFlag.MoveType == MoveType.EnPassant && PieceMovementState.EnPassantFlag.Pos == tile.pos)
-        {            
-            pawAttack.Add(new AvailableMove(tile.pos, MoveType.EnPassant));
-        }
-    }
 }

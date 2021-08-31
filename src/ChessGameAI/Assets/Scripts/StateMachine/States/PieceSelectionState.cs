@@ -31,7 +31,7 @@ public class PieceSelectionState : State
         var player = args as Player;
         if (Machine.CurrentlyPlaying == player)
         {
-            Debug.Log(piece + " was clicked.");
+            //Debug.Log(piece + " was clicked.");
             Board.Instance.SelectedPiece = piece;
             Machine.ChangeTo<MoveSelectionState>();            
         }

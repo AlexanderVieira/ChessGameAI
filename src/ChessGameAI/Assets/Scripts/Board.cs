@@ -19,15 +19,23 @@ public class Board : MonoBehaviour
     }    
     public List<Piece> GoldenPieces = new List<Piece>();
     public List<Piece> GreenPieces = new List<Piece>();
-    public Dictionary<Vector2Int, Tile> Tiles = new Dictionary<Vector2Int, Tile>();
-    //public TileClickedEvent TileClicked = delegate{};
+    public Dictionary<Vector2Int, Tile> Tiles = new Dictionary<Vector2Int, Tile>();    
     public Piece SelectedPiece;
     public HighlightClick SelectedHighlight;
     public AvailableMove SelectedMove;
 
     void Awake(){
-        Instance = this;
-        //CreateBoard();
+        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+        }
+        else if (Instance != this)
+        {
+            Destroy(Instance);
+        }        
+        
     }
 
     public async Task LoadAsync(){

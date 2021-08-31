@@ -2236,8 +2236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d7c79082cb1cc4cbdb9800af7d942e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIHighlight: {fileID: 0}
-  GoalPlyDepth: 1
+  GoalPlyDepth: 4
 --- !u!4 &1168924932
 Transform:
   m_ObjectHideFlags: 0

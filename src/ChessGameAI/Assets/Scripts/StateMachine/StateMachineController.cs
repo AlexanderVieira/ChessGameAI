@@ -15,7 +15,17 @@ public class StateMachineController : MonoBehaviour
     private bool _busy;
     
     private void Awake(){
-        Instance = this;
+        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(Instance);
+            
+        }else if (Instance != this)
+        {
+            Destroy(Instance);
+        }
+        
     }
 
     private void Start(){

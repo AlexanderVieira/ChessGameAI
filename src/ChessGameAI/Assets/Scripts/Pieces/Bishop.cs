@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bishop : Piece
-{
-    private void Awake(){
-
-        Movement = new BishopMovement();
-        
+{    
+    protected override void Start()
+    {
+        base.Start();
+        Movement = new BishopMovement(MaxKingdom);
     }
 }

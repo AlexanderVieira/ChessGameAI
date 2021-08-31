@@ -6,6 +6,7 @@ public abstract class Movement
 {
     public int PieceWeight;
     public abstract List<AvailableMove> GetValidMoves();
+    public Dictionary<Vector2Int, int> PositionValue;
     protected bool IsEnemy(Tile tile){
 
         if (tile.content != null && tile.content.transform.parent != Board.Instance.SelectedPiece.transform.parent)
@@ -21,11 +22,12 @@ public abstract class Movement
         Board.Instance.Tiles.TryGetValue(position, out tile);
         return tile;
     }
-    protected List<AvailableMove> UntilBlockedPath(Vector2Int direction, bool includeBlocked, int limit){
-
-        var moves = new List<AvailableMove>();
+    protected void UntilBlockedPath(List<AvailableMove> moves, 
+                                    Vector2Int direction, bool includeBlocked, int limit){
+        
         var current = Board.Instance.SelectedPiece.tile;
-        while (current != null && moves.Count < limit)
+        var currentCount = moves.Count;
+        while (current != null && moves.Count < limit + currentCount)
         {
             if (Board.Instance.Tiles.TryGetValue(current.pos + direction, out current))
             {
@@ -37,24 +39,17 @@ public abstract class Movement
                 {
                     if (includeBlocked)
                     {
-                        moves.Add(new AvailableMove(current.pos));
+                        moves.Insert(0, new AvailableMove(current.pos));
                     }
-                    return moves;
+                    return;
 
                 }else
                 {
-                    return moves;
+                    return;
                 }
             }
         }
-        return moves;       
+        return;       
     }
-
-    // protected void SetNormalMove(List<Tile> tiles){
-
-    //     foreach (var tile in tiles)
-    //     {
-    //         tile.MoveType = MoveType.Normal;
-    //     }
-    // }
+    
 }

@@ -5,9 +5,17 @@ using UnityEngine;
 
 public class KnightMovement : Movement
 {
-    public KnightMovement()
+    public KnightMovement(bool maxKingdom)
     {
         PieceWeight = 3;
+        if (maxKingdom)
+        {
+            PositionValue = AIController.Instance.SquareTable.KnightGolden;
+        }
+        else
+        {
+            PositionValue = AIController.Instance.SquareTable.KnightGreen;
+        }
     }
 
     public override List<AvailableMove> GetValidMoves()
@@ -16,8 +24,7 @@ public class KnightMovement : Movement
         moves.AddRange(GetStraightMovement(new Vector2Int(0, 1)));
         moves.AddRange(GetStraightMovement(new Vector2Int(0, -1)));
         moves.AddRange(GetStraightMovement(new Vector2Int(1, 0)));
-        moves.AddRange(GetStraightMovement(new Vector2Int(-1, 0)));
-        //SetNormalMove(moves);
+        moves.AddRange(GetStraightMovement(new Vector2Int(-1, 0)));        
         return moves;
     }
 

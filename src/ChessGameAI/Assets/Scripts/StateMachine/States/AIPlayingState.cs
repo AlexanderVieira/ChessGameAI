@@ -19,25 +19,14 @@ public class AIPlayingState : State
         {
             currentPly = currentPly.OriginPly;
         }
-        Board.Instance.SelectedPiece = currentPly.AffectedPieces[0].Piece;
-        Debug.Log(currentPly.AffectedPieces[0].Piece.name);
-        Board.Instance.SelectedMove = GetMoveType(currentPly);
-        Debug.Log(Board.Instance.SelectedMove);
+        Board.Instance.SelectedPiece = currentPly.AffectedPieces[0].Piece;        
+        Board.Instance.SelectedMove = GetMoveType(currentPly);        
         await Task.Delay(100);
         Machine.ChangeTo<PieceMovementState>();
     }
 
     private AvailableMove GetMoveType(Ply currentPly)
-    {
-        List<PieceEvaluation> Kingdom;
-        if (Machine.CurrentlyPlaying == Machine.Player1)
-        {
-            Kingdom = currentPly.Goldens;
-        }
-        else
-        {
-            Kingdom = currentPly.Greens;
-        }
+    {        
         var moves = Board.Instance.SelectedPiece.Movement.GetValidMoves();
         foreach (var move in moves)
         {

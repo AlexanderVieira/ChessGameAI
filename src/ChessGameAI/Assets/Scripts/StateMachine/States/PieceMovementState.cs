@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class PieceMovementState : State
 {
-    public static List<AffectedPiece> AffectedPieces = new List<AffectedPiece>();
+    public static List<AffectedPiece> AffectedPieces;
     public static AvailableMove EnPassantFlag;
     private const string PIECE = "Knight";
     public override async void EnterAsync()
     {
         Debug.Log("Piece Movement State.");
         var tcs = new TaskCompletionSource<bool>();
-        var moveType = Board.Instance.SelectedMove.MoveType;
-        //ClearEnPassant();
+        var moveType = Board.Instance.SelectedMove.MoveType;       
         MovePiece(tcs, false, moveType);
-        await tcs.Task;
-        //await Task.Delay(100);
+        await tcs.Task;        
         Machine.ChangeTo<TurnEndState>();
     }
     public static void MovePiece(TaskCompletionSource<bool> tcs, bool skipMovement, MoveType moveType)
@@ -45,13 +43,11 @@ public class PieceMovementState : State
     }
     private static void NormalMove(TaskCompletionSource<bool> tcs, bool skipMovement)
     {
-        var piece = Board.Instance.SelectedPiece as Piece;
-        //Debug.Log("WasMoved:" + piece.WasMoved);
+        var piece = Board.Instance.SelectedPiece as Piece;        
         var pieceMoving = piece.CreateAffected();
         pieceMoving.Piece = piece;
         pieceMoving.From = piece.tile;
-        pieceMoving.To = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos];
-        //pieceMoving.WasMoved = piece.WasMoved;
+        pieceMoving.To = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos];        
         AffectedPieces.Insert(0, pieceMoving);        
         piece.tile.content = null;
         piece.tile = pieceMoving.To;
@@ -59,22 +55,23 @@ public class PieceMovementState : State
         if (piece.tile.content != null)
         {
             var deadPiece = piece.tile.content as Piece;
-            var pieceKilled = new AffectedPiece();
+            var pieceKilled = new AffectedEnemy();
             pieceKilled.Piece = deadPiece;
             pieceKilled.From = piece.tile;
             pieceKilled.To = piece.tile;
             AffectedPieces.Add(pieceKilled);
-            Debug.LogFormat("The Piece {0} has been captured", deadPiece.transform.name);
+            //Debug.LogFormat("The Piece {0} has been captured", deadPiece.transform.name);
             deadPiece.gameObject.SetActive(false);
+            pieceKilled.Index = deadPiece.Kingdom.IndexOf(deadPiece);
+            deadPiece.Kingdom.RemoveAt(pieceKilled.Index);            
         }
         piece.tile.content = piece;        
         
         if (skipMovement)
         {
-            piece.WasMoved = true;
-            //piece.transform.position = Board.Instance.SelectedHighlight.transform.position;
-            var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
-            piece.transform.position = Vector3Pos;
+            piece.WasMoved = true;            
+            //var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
+            //piece.transform.position = Vector3Pos;
             tcs.SetResult(true);
         }
         else
@@ -91,32 +88,25 @@ public class PieceMovementState : State
         }
     }   
     private static void EnPassant(TaskCompletionSource<bool> tcs, bool skipMovement)
-    {
-        Debug.Log("EnPassant:");
-        var pawn = Board.Instance.SelectedPiece as Pawn;
-        //Debug.Log("Pawn: " + pawn.tile.pos);
-        var direction = pawn.MaxKingdom ? new Vector2Int(0, -1) : new Vector2Int(0, 1);
-        //Debug.Log("Direction: " + direction);
-        //Debug.Log("SelectedMove: " + Board.Instance.SelectedMove.Pos + direction);
-        //Debug.Log("En Passant:" + Board.Instance.SelectedHighlight.Tile.pos + direction);
+    {        
+        var pawn = Board.Instance.SelectedPiece as Pawn;        
+        var direction = pawn.MaxKingdom ? new Vector2Int(0, -1) : new Vector2Int(0, 1);        
         var enemy = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos + direction];       
-        Debug.Log("Enemy: " + enemy.content);
-        var affectedEnemy = new AffectedPiece();
+        var affectedEnemy = new AffectedEnemy();
         affectedEnemy.From = enemy;
         affectedEnemy.To = enemy;
-        affectedEnemy.Piece = enemy.content;
-        //affectedEnemy.WasMoved = enemy.content.WasMoved;
+        affectedEnemy.Piece = enemy.content;        
+        affectedEnemy.Index = affectedEnemy.Piece.Kingdom.IndexOf(affectedEnemy.Piece);
+        affectedEnemy.Piece.Kingdom.RemoveAt(affectedEnemy.Index);        
         AffectedPieces.Add(affectedEnemy);
         enemy.content.gameObject.SetActive(false);
         enemy.content = null;        
         NormalMove(tcs, skipMovement);
     }
     private static void PawnDoubleMove(TaskCompletionSource<bool> tcs, bool skipMovement)
-    {
-        Debug.Log("PawnDoubleMove:");
+    {        
         var pawn = Board.Instance.SelectedPiece as Pawn;
-        var direction = pawn.MaxKingdom ? new Vector2Int(0, 1) : new Vector2Int(0, -1);
-        //Board.Instance.Tiles[pawn.tile.pos + direction].MoveType = MoveType.EnPassant;
+        var direction = pawn.MaxKingdom ? new Vector2Int(0, 1) : new Vector2Int(0, -1);        
         EnPassantFlag = new AvailableMove(pawn.tile.pos + direction, MoveType.EnPassant);
         NormalMove(tcs, skipMovement);
     }
@@ -125,15 +115,13 @@ public class PieceMovementState : State
         var king = Board.Instance.SelectedPiece;
         var affectedKing = new AffectedKingRook();
         affectedKing.From = king.tile;
-        king.tile.content = null;
-        //affectedKing.WasMoved = king.WasMoved;
+        king.tile.content = null;        
         affectedKing.Piece = king;
 
         var rook = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos].content;
         var affectedRook = new AffectedKingRook();
         affectedRook.From = rook.tile;        
-        rook.tile.content = null;
-        //affectedRook.WasMoved = rook.WasMoved;
+        rook.tile.content = null;        
         affectedRook.Piece = rook;
 
         var direction = rook.tile.pos - king.tile.pos;
@@ -173,8 +161,7 @@ public class PieceMovementState : State
         
     }   
     private static async void Promotion(TaskCompletionSource<bool> tcs, bool skipMovement)
-    {
-        Debug.Log("Pawn Promotion");
+    {        
         var movementTCS = new TaskCompletionSource<bool>();
         NormalMove(movementTCS, skipMovement);
         await movementTCS.Task;
@@ -214,18 +201,5 @@ public class PieceMovementState : State
         }
         tcs.SetResult(true);
     }
-    private static void ClearEnPassant()
-    {
-        ClearEnPassant(5);
-        ClearEnPassant(2);
-    }
-    private static void ClearEnPassant(int height)
-    {
-        var position = new Vector2Int(0, height);
-        for (int i = 0; i < 7; i++)
-        {
-            position.x = position.x + 1;
-            Board.Instance.Tiles[position].MoveType = MoveType.Normal;
-        }
-    }
+    
 }

@@ -11,7 +11,15 @@ public class Highlight : MonoBehaviour
     private Queue<SpriteRenderer> _onReserve = new Queue<SpriteRenderer>();
     private void Awake(){
 
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+            //DontDestroyOnLoad(Instance);
+        }
+        else if (Instance != this)
+        {
+            Destroy(Instance);
+        }        
 
     }    
 

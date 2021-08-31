@@ -4,15 +4,22 @@ using UnityEngine;
 
 public abstract class Piece : MonoBehaviour
 {
+    
+    [HideInInspector]
+    public Movement Movement;    
     public Tile tile;
-    public Movement Movement;
     public bool WasMoved;
     public bool MaxKingdom;
+    public List<Piece> Kingdom;
     virtual protected void Start(){
 
         if (transform.parent.name == "GoldenPieces")
         {
+            Kingdom = Board.Instance.GoldenPieces;
             MaxKingdom = true;
+        }else
+        {
+            Kingdom = Board.Instance.GreenPieces;
         }
     }
     public virtual AffectedPiece CreateAffected(){
@@ -20,7 +27,7 @@ public abstract class Piece : MonoBehaviour
         return new AffectedPiece();
     }
     void OnMouseDown(){
-        //Debug.Log("Clicou em " + transform.name);
+        
         InputController.Instance.TileClicked(this, transform.parent.GetComponent<Player>());
     }
 }

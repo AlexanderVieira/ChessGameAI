@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Queen : Piece
 {
-   private void Awake(){
-
-       Movement = new QueenMovement();
-
-   }
+    protected override void Start()
+    {
+        base.Start();
+        Movement = new QueenMovement(MaxKingdom);
+    }
 }

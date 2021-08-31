@@ -7,14 +7,13 @@ public class AffectedPiece
     public Piece Piece;
     public Tile From;
     public Tile To;
-    //public bool WasMoved;
+    
     public virtual void Undo(){
         
         Piece.tile.content = null;
         Piece.tile = From;
         From.content = Piece;
-        Piece.transform.position = new Vector3(From.pos.x, From.pos.y, 0);
-        Piece.gameObject.SetActive(true);
+        //Piece.transform.position = new Vector3(From.pos.x, From.pos.y, 0);        
         
     }
 }
@@ -42,5 +41,14 @@ public class AffectedKingRook : AffectedPiece
     {
         base.Undo();
         Piece.WasMoved = WasMoved;
+    }
+}
+
+public class AffectedEnemy : AffectedPiece{
+    public int Index;
+    public override void Undo(){
+        base.Undo();
+        Piece.gameObject.SetActive(true);
+        Piece.Kingdom.Insert(Index, Piece);        
     }
 }

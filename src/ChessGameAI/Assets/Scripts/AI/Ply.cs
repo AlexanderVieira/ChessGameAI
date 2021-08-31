@@ -5,14 +5,9 @@ using UnityEngine;
 
 public class Ply
 {
-    public string Name;
-    public List<PieceEvaluation> Goldens;
-    public List<PieceEvaluation> Greens;
-    public List<AffectedPiece> AffectedPieces;
-    public int Score;
-    public MoveType MoveType;
-    public Ply OriginPly;
-    public List<Ply> FuturePlies;
+    public int Score;    
+    public List<AffectedPiece> AffectedPieces;    
+    public Ply OriginPly;    
     public Ply BestFuture;
     public AvailableMove EnPassantFlag;
 

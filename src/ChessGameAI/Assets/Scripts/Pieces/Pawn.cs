@@ -6,17 +6,17 @@ using UnityEngine;
 public class Pawn : Piece
 {
     public Movement SavedMovement;
-    public Movement QueenMovement = new QueenMovement();
-    public Movement KnightMovement = new KnightMovement();
+    public Movement QueenMovement;
+    public Movement KnightMovement;
    protected override void Start(){
 
        base.Start();
        Movement = new PawnMovement(MaxKingdom);
        SavedMovement = new PawnMovement(MaxKingdom);
-       //Movement = new PawnMovement(GetDirection());
-       //SavedMovement = new PawnMovement(GetDirection());
-   }
-   public override AffectedPiece CreateAffected()
+       QueenMovement = new QueenMovement(MaxKingdom);
+       KnightMovement = new KnightMovement(MaxKingdom);       
+   }    
+    public override AffectedPiece CreateAffected()
     {
         var afp = new AffectedPawn
         {
@@ -25,12 +25,4 @@ public class Pawn : Piece
         return afp;
     }
 
-    private Vector2Int GetDirection()
-    {
-        if (MaxKingdom)
-        {
-            return new Vector2Int(0, 1);
-        }
-        return new Vector2Int(0, -1);
-    }
 }

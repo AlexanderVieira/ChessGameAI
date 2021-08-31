@@ -7,35 +7,42 @@ using System;
 
 public class KingMovement : Movement
 {
-    public KingMovement()
+    public KingMovement(bool maxKingdom)
     {
         PieceWeight = 1000;
+        if (maxKingdom)
+        {
+            PositionValue = AIController.Instance.SquareTable.KingGolden;
+        }
+        else
+        {
+            PositionValue = AIController.Instance.SquareTable.KingGreen;
+        }
     }
 
     public override List<AvailableMove> GetValidMoves()
     {        
         var moves = new List<AvailableMove>();
-        moves.AddRange(UntilBlockedPath(new Vector2Int(1, 0), true, 1));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 0), true, 1));
+        UntilBlockedPath(moves, new Vector2Int(1, 0), true, 1);
+        UntilBlockedPath(moves, new Vector2Int(-1, 0), true, 1);
 
-        moves.AddRange(UntilBlockedPath(new Vector2Int(0, 1), true, 1));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(0, -1), true, 1));
+        UntilBlockedPath(moves, new Vector2Int(0, 1), true, 1);
+        UntilBlockedPath(moves, new Vector2Int(0, -1), true, 1);
 
-        moves.AddRange(UntilBlockedPath(new Vector2Int(-1, -1), true, 1));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 1), true, 1));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(1, -1), true, 1));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(1, 1), true, 1));
-        //SetNormalMove(moves);
-        moves.AddRange(Castling());
+        UntilBlockedPath(moves, new Vector2Int(-1, -1), true, 1);
+        UntilBlockedPath(moves, new Vector2Int(-1, 1), true, 1);
+        UntilBlockedPath(moves, new Vector2Int(1, -1), true, 1);
+        UntilBlockedPath(moves, new Vector2Int(1, 1), true, 1);        
+        
+        Castling(moves);
         return moves;
     }
 
-    private List<AvailableMove> Castling()
-    {
-        var availableMoves = new List<AvailableMove>();
+    private void Castling(List<AvailableMove> availableMoves)
+    {        
         if (Board.Instance.SelectedPiece.GetComponent<King>().WasMoved)
         {
-            return availableMoves;
+            return;
         }
         var tile = CheckRook(new Vector2Int(1, 0));
         if (tile != null)
@@ -47,7 +54,7 @@ public class KingMovement : Movement
         {
             availableMoves.Add(new AvailableMove(tile.pos, MoveType.Castling));            
         }
-        return availableMoves;
+        return;
     }
 
     private Tile CheckRook(Vector2Int direction)

@@ -4,25 +4,33 @@ using UnityEngine;
 
 public class QueenMovement : Movement
 {
-    public QueenMovement()
+    public QueenMovement(bool maxKingdom)
     {
         PieceWeight = 9;
+        if (maxKingdom)
+        {
+            PositionValue = AIController.Instance.SquareTable.QueenGolden;
+        }
+        else
+        {
+            PositionValue = AIController.Instance.SquareTable.QueenGreen;
+        }
     }
 
     public override List<AvailableMove> GetValidMoves()
     {
         var moves = new List<AvailableMove>();
-        moves.AddRange(UntilBlockedPath(new Vector2Int(1, 0), true, 99));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 0), true, 99));
+        UntilBlockedPath(moves, new Vector2Int(1, 0), true, 99);
+        UntilBlockedPath(moves, new Vector2Int(-1, 0), true, 99);
 
-        moves.AddRange(UntilBlockedPath(new Vector2Int(0, 1), true, 99));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(0, -1), true, 99));
+        UntilBlockedPath(moves, new Vector2Int(0, 1), true, 99);
+        UntilBlockedPath(moves, new Vector2Int(0, -1), true, 99);
 
-        moves.AddRange(UntilBlockedPath(new Vector2Int(-1, -1), true, 99));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(-1, 1), true, 99));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(1, -1), true, 99));
-        moves.AddRange(UntilBlockedPath(new Vector2Int(1, 1), true, 99));
-        //SetNormalMove(moves);
+        UntilBlockedPath(moves, new Vector2Int(-1, -1), true, 99);
+        UntilBlockedPath(moves, new Vector2Int(-1, 1), true, 99);
+        UntilBlockedPath(moves, new Vector2Int(1, -1), true, 99);
+        UntilBlockedPath(moves, new Vector2Int(1, 1), true, 99);
+        
         return moves;
     }
 }
