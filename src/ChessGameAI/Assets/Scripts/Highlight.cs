@@ -14,11 +14,11 @@ public class Highlight : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(Instance);
+            //DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
         }        
 
     }    

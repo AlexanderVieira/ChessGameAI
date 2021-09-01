@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-//public delegate void TileClickedEvent(object sender, object args);
 public class Board : MonoBehaviour
 {
     public static Board Instance;
@@ -29,11 +28,11 @@ public class Board : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
         }        
         
     }

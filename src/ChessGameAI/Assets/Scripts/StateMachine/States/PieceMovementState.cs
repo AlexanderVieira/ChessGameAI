@@ -63,7 +63,8 @@ public class PieceMovementState : State
             //Debug.LogFormat("The Piece {0} has been captured", deadPiece.transform.name);
             deadPiece.gameObject.SetActive(false);
             pieceKilled.Index = deadPiece.Kingdom.IndexOf(deadPiece);
-            deadPiece.Kingdom.RemoveAt(pieceKilled.Index);            
+            deadPiece.Kingdom.RemoveAt(pieceKilled.Index);
+            //LevelController.Instance.UpdateScore(deadPiece);            
         }
         piece.tile.content = piece;        
         
@@ -100,6 +101,7 @@ public class PieceMovementState : State
         affectedEnemy.Piece.Kingdom.RemoveAt(affectedEnemy.Index);        
         AffectedPieces.Add(affectedEnemy);
         enemy.content.gameObject.SetActive(false);
+        //LevelController.Instance.UpdateScore(enemy.content);
         enemy.content = null;        
         NormalMove(tcs, skipMovement);
     }
@@ -201,5 +203,22 @@ public class PieceMovementState : State
         }
         tcs.SetResult(true);
     }
+    // private static void UpdateScore(Piece pe)
+    // {        
+    //     int scoreDirection;
+    //     var ply = new Ply();
+    //     if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
+    //     {
+    //         scoreDirection = 1;
+    //     }
+    //     else
+    //     {
+    //         scoreDirection = -1;
+    //     }        
+    //     var positionValue = pe.Movement.PositionValue[pe.tile.pos];
+    //     var amount = (pe.Movement.PieceWeight + positionValue) * scoreDirection;
+    //     ply.Score = (pe.Movement.PieceWeight + positionValue) * scoreDirection;
+    //     LevelController.Instance.UpdateScore(amount);
+    // }
     
 }

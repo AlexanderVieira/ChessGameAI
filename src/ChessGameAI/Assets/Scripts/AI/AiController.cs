@@ -21,11 +21,11 @@ public class AIController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(Instance);
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {
-            Destroy(Instance);
+            Destroy(gameObject);
         }        
         
         MaxPly = new Ply
@@ -85,11 +85,8 @@ public class AIController : MonoBehaviour
         }
     }   
 
-    private async Task<Ply> CalculatePly(Ply parentPly,                                         
-                                         int alpha,
-                                         int beta, 
-                                         int currentPlyDepth, 
-                                         int minimaxDirection)
+    private async Task<Ply> CalculatePly(Ply parentPly, int alpha, int beta, 
+                                         int currentPlyDepth, int minimaxDirection)
     {              
         currentPlyDepth++;
         if (currentPlyDepth > GoalPlyDepth)
@@ -114,12 +111,10 @@ public class AIController : MonoBehaviour
         }
         
         for (int i = 0; i < kingdom.Count; i++)       
-        {
-            
+        {            
             Board.Instance.SelectedPiece = kingdom[i];
             foreach (var availableMove in kingdom[i].Movement.GetValidMoves())
-            {
-                
+            {                
                 _calculationCount++;
                 Board.Instance.SelectedPiece = kingdom[i];
                 Board.Instance.SelectedMove = availableMove;               
