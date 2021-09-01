@@ -9,7 +9,7 @@ public class AIController : MonoBehaviour
     public static AIController Instance;    
     public Ply MinPly;
     public Ply MaxPly;
-    public int GoalPlyDepth = 2;
+    public int GoalPlyDepth;
     public AvailableMove EnPassantFlagSaved;
     public PieceSquareTable SquareTable = new PieceSquareTable();
     private int _calculationCount;
@@ -61,8 +61,7 @@ public class AIController : MonoBehaviour
         currentPly.AffectedPieces = new List<AffectedPiece>();       
         currentPly.BestFuture = await CalculatePly(currentPly, ALPHA, BETA, 
                                        currentPlyDepth, minimaxDirection);
-        //await calculation;
-        //currentPly.BestFuture = calculation.Result;
+        
         //Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
         Debug.Log("Calculations: " + _calculationCount);
         Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
@@ -89,6 +88,7 @@ public class AIController : MonoBehaviour
                                          int currentPlyDepth, int minimaxDirection)
     {              
         currentPlyDepth++;
+        GoalPlyDepth = LevelController.Instance.Level;
         if (currentPlyDepth > GoalPlyDepth)
         {
             EvaluateBoard(parentPly);
@@ -121,14 +121,12 @@ public class AIController : MonoBehaviour
                 var tcs = new TaskCompletionSource<bool>();
                 PieceMovementState.MovePiece(tcs, true, availableMove.MoveType);
                 await tcs.Task;               
-               
                 //newPly.Name = string.Format("{0}, {1} to {2}", parentPly.Name, pe.Piece.transform.parent.name + "-" + pe.Piece.name , tile.pos);
                 var newPly = new Ply();
                 newPly.AffectedPieces = PieceMovementState.AffectedPieces;
                 newPly.EnPassantFlag = PieceMovementState.EnPassantFlag;               
                 var calculation = await CalculatePly(newPly, alpha, beta, 
-                                                     currentPlyDepth, minimaxDirection * -1);
-                //await calculation;
+                                                     currentPlyDepth, minimaxDirection * -1);                
                 parentPly.BestFuture = IsBest(parentPly.BestFuture, 
                                               minimaxDirection, calculation, 
                                               ref alpha, ref beta);                

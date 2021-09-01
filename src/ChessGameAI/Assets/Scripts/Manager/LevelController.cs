@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     public static LevelController Instance;
-    public int LevelEasy;
+    public int Level;
     public int LevelMedium;
     public int LevelHard;
     public bool AIControlledPlayer1;
@@ -37,9 +37,10 @@ public class LevelController : MonoBehaviour
         
     }    
 
-    public void ChangeLevel(){
+    public void ChangeLevel(string level){
 
-        
+        Level = int.Parse(level);
+        Debug.Log("Nível de dificuldade: " + Level);
 
     }
 

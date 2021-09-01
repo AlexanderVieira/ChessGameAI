@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 393778852}
   - component: {fileID: 393778851}
   m_Layer: 5
-  m_Name: btn_medio
+  m_Name: btn_medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -390,7 +390,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 393778852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 47437715}
+        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
+        m_MethodName: ChangeLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 5
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &393778852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,7 +1004,7 @@ GameObject:
   - component: {fileID: 737325371}
   - component: {fileID: 737325370}
   m_Layer: 5
-  m_Name: btn_facil
+  m_Name: btn_easy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1060,7 +1072,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 737325371}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 47437715}
+        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
+        m_MethodName: ChangeLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 2
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &737325371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1649,7 +1673,7 @@ GameObject:
   - component: {fileID: 1997665114}
   - component: {fileID: 1997665113}
   m_Layer: 5
-  m_Name: btn_dificil
+  m_Name: btn_hard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1717,7 +1741,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1997665114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 47437715}
+        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
+        m_MethodName: ChangeLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 7
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1997665114
 MonoBehaviour:
   m_ObjectHideFlags: 0
