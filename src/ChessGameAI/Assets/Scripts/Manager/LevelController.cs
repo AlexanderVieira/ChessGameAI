@@ -1,8 +1,3 @@
-using System.Security;
-using System.Text;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -10,9 +5,8 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     public static LevelController Instance;
-    public int Level;
-    public int LevelMedium;
-    public int LevelHard;
+    public Animator GameOverCanvas;
+    public int Level;    
     public bool AIControlledPlayer1;
     public bool AIControlledPlayer2;
     public Text ScoreText;
@@ -55,24 +49,38 @@ public class LevelController : MonoBehaviour
         
         AIControlledPlayer2 = bool.Parse(activated);       
 
-    }   
+    }
 
-    // public void UpdateScore(Piece pe){
+    public void GameOver(){
+                
+        GameOverCanvas.SetTrigger("GameOver");
 
-    //     int scoreDirection;        
-    //     if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
-    //     {
-    //         scoreDirection = 1;
-    //     }
-    //     else
-    //     {
-    //         scoreDirection = -1;
-    //     }        
-    //     var positionValue = pe.Movement.PositionValue[pe.tile.pos];
-    //     Score += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
-    //     ScoreText.text = string.Format($"Pontos: {0}", Score);
+        if (GameControl.Instance != null)
+        {
+            GameControl.Instance.Score += Score;
+            if (Score > GameControl.Instance.MaxScore)
+            {
+                GameControl.Instance.MaxScore = Score;
+            }
+        }
+    } 
 
-    // }
+    public void UpdateScore(Piece pe){
+
+        int scoreDirection;        
+        if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
+        {
+            scoreDirection = 1;
+        }
+        else
+        {
+            scoreDirection = -1;
+        }        
+        var positionValue = pe.Movement.PositionValue[pe.tile.pos];
+        Score += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
+        ScoreText.text = "Pontos: " + Score;
+        //Debug.Log(Score);
+    }
 
     public void ReloadScene(){
 

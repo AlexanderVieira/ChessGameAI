@@ -7,7 +7,7 @@ public class MoveSelectionState : State
 {
     public override void EnterAsync()
     {
-        Debug.Log("Move Selection State.");
+        //Debug.Log("Move Selection State.");
         var movements = Board.Instance.SelectedPiece.Movement.GetValidMoves();
         Highlight.Instance.SelectTiles(movements);
         InputController.Instance.TileClicked += OnHighlightClicked;        

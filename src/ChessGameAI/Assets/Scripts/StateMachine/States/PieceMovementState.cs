@@ -7,9 +7,10 @@ public class PieceMovementState : State
     public static List<AffectedPiece> AffectedPieces;
     public static AvailableMove EnPassantFlag;
     private const string PIECE = "Knight";
+    private const string KING = "King";
     public override async void EnterAsync()
     {
-        Debug.Log("Piece Movement State.");
+        //Debug.Log("Piece Movement State.");
         var tcs = new TaskCompletionSource<bool>();
         var moveType = Board.Instance.SelectedMove.MoveType;       
         MovePiece(tcs, false, moveType);
@@ -42,6 +43,31 @@ public class PieceMovementState : State
         }
     }
     private static void NormalMove(TaskCompletionSource<bool> tcs, bool skipMovement)
+    {   
+        if (skipMovement)
+        {
+            var piece = NormalMoveAI(); 
+            piece.WasMoved = true;                         
+            //var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
+            //piece.transform.position = Vector3Pos;                      
+            tcs.SetResult(true);
+        }
+        else
+        {
+            var piece = NormalMoveHuman();
+            piece.WasMoved = true;
+            var vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
+            var timing = Vector3.Distance(piece.transform.position,vector3Pos) * 0.5f;
+            LeanTween.move(piece.gameObject, vector3Pos, timing)
+                     .setOnComplete(() => 
+                     { 
+                         tcs.SetResult(true); 
+                     });           
+            
+        }
+    }
+
+    private static Piece NormalMoveHuman()
     {
         var piece = Board.Instance.SelectedPiece as Piece;        
         var pieceMoving = piece.CreateAffected();
@@ -64,46 +90,77 @@ public class PieceMovementState : State
             deadPiece.gameObject.SetActive(false);
             pieceKilled.Index = deadPiece.Kingdom.IndexOf(deadPiece);
             deadPiece.Kingdom.RemoveAt(pieceKilled.Index);
-            //LevelController.Instance.UpdateScore(deadPiece);            
+            LevelController.Instance.UpdateScore(deadPiece);
+            
         }
-        piece.tile.content = piece;        
+        piece.tile.content = piece; 
+        return piece;
+    }
+
+    private static Piece NormalMoveAI()
+    {
+        var piece = Board.Instance.SelectedPiece as Piece;        
+        var pieceMoving = piece.CreateAffected();
+        pieceMoving.Piece = piece;
+        pieceMoving.From = piece.tile;
+        pieceMoving.To = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos];        
+        AffectedPieces.Insert(0, pieceMoving);        
+        piece.tile.content = null;
+        piece.tile = pieceMoving.To;
         
+        if (piece.tile.content != null)
+        {
+            var deadPiece = piece.tile.content as Piece;
+            var pieceKilled = new AffectedEnemy();
+            pieceKilled.Piece = deadPiece;
+            pieceKilled.From = piece.tile;
+            pieceKilled.To = piece.tile;
+            AffectedPieces.Add(pieceKilled);
+            //Debug.LogFormat("The Piece {0} has been captured", deadPiece.transform.name);
+            deadPiece.gameObject.SetActive(false);
+            pieceKilled.Index = deadPiece.Kingdom.IndexOf(deadPiece);
+            deadPiece.Kingdom.RemoveAt(pieceKilled.Index);            
+            
+        }
+        piece.tile.content = piece;
+        return piece;
+    }
+
+    private static void EnPassant(TaskCompletionSource<bool> tcs, bool skipMovement)
+    {
         if (skipMovement)
         {
-            piece.WasMoved = true;            
-            //var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
-            //piece.transform.position = Vector3Pos;
-            tcs.SetResult(true);
+            var pawn = Board.Instance.SelectedPiece as Pawn;        
+            var direction = pawn.MaxKingdom ? new Vector2Int(0, -1) : new Vector2Int(0, 1);        
+            var enemy = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos + direction];       
+            var affectedEnemy = new AffectedEnemy();
+            affectedEnemy.From = enemy;
+            affectedEnemy.To = enemy;
+            affectedEnemy.Piece = enemy.content;        
+            affectedEnemy.Index = affectedEnemy.Piece.Kingdom.IndexOf(affectedEnemy.Piece);
+            affectedEnemy.Piece.Kingdom.RemoveAt(affectedEnemy.Index);        
+            AffectedPieces.Add(affectedEnemy);
+            enemy.content.gameObject.SetActive(false);        
+            enemy.content = null;        
+            NormalMove(tcs, skipMovement);
         }
         else
         {
-            piece.WasMoved = true;
-            var vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
-            var timing = Vector3.Distance(piece.transform.position,vector3Pos) * 0.5f;
-            LeanTween.move(piece.gameObject, vector3Pos, timing)
-                     .setOnComplete(() => 
-                     { 
-                         tcs.SetResult(true); 
-                     });           
-            
-        }
-    }   
-    private static void EnPassant(TaskCompletionSource<bool> tcs, bool skipMovement)
-    {        
-        var pawn = Board.Instance.SelectedPiece as Pawn;        
-        var direction = pawn.MaxKingdom ? new Vector2Int(0, -1) : new Vector2Int(0, 1);        
-        var enemy = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos + direction];       
-        var affectedEnemy = new AffectedEnemy();
-        affectedEnemy.From = enemy;
-        affectedEnemy.To = enemy;
-        affectedEnemy.Piece = enemy.content;        
-        affectedEnemy.Index = affectedEnemy.Piece.Kingdom.IndexOf(affectedEnemy.Piece);
-        affectedEnemy.Piece.Kingdom.RemoveAt(affectedEnemy.Index);        
-        AffectedPieces.Add(affectedEnemy);
-        enemy.content.gameObject.SetActive(false);
-        //LevelController.Instance.UpdateScore(enemy.content);
-        enemy.content = null;        
-        NormalMove(tcs, skipMovement);
+            var pawn = Board.Instance.SelectedPiece as Pawn;        
+            var direction = pawn.MaxKingdom ? new Vector2Int(0, -1) : new Vector2Int(0, 1);        
+            var enemy = Board.Instance.Tiles[Board.Instance.SelectedMove.Pos + direction];       
+            var affectedEnemy = new AffectedEnemy();
+            affectedEnemy.From = enemy;
+            affectedEnemy.To = enemy;
+            affectedEnemy.Piece = enemy.content;        
+            affectedEnemy.Index = affectedEnemy.Piece.Kingdom.IndexOf(affectedEnemy.Piece);
+            affectedEnemy.Piece.Kingdom.RemoveAt(affectedEnemy.Index);        
+            AffectedPieces.Add(affectedEnemy);
+            enemy.content.gameObject.SetActive(false);        
+            enemy.content = null;
+            LevelController.Instance.UpdateScore(affectedEnemy.Piece);        
+            NormalMove(tcs, skipMovement);
+        }        
     }
     private static void PawnDoubleMove(TaskCompletionSource<bool> tcs, bool skipMovement)
     {        
@@ -202,23 +259,6 @@ public class PieceMovementState : State
             pawn.Movement = pawn.QueenMovement;
         }
         tcs.SetResult(true);
-    }
-    // private static void UpdateScore(Piece pe)
-    // {        
-    //     int scoreDirection;
-    //     var ply = new Ply();
-    //     if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
-    //     {
-    //         scoreDirection = 1;
-    //     }
-    //     else
-    //     {
-    //         scoreDirection = -1;
-    //     }        
-    //     var positionValue = pe.Movement.PositionValue[pe.tile.pos];
-    //     var amount = (pe.Movement.PieceWeight + positionValue) * scoreDirection;
-    //     ply.Score = (pe.Movement.PieceWeight + positionValue) * scoreDirection;
-    //     LevelController.Instance.UpdateScore(amount);
-    // }
+    }    
     
 }

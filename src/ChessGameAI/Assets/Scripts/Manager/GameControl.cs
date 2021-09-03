@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameControl : MonoBehaviour
 {
-    public static GameControl Instance;
-    public int Score;
+    public static GameControl Instance;    
+    public int Score;    
     public int MaxScore;
 
     void Awake()
@@ -22,9 +22,5 @@ public class GameControl : MonoBehaviour
         }
 
     }
-
-    void Start()
-    {
-        
-    }
+    
 }

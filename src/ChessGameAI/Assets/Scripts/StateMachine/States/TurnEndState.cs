@@ -8,7 +8,7 @@ public class TurnEndState : State
 {
    public override async void EnterAsync()
     {
-        Debug.Log("Turn End State:");
+        //Debug.Log("Turn End State:");
         bool gameFinished = CheckConditions();
         await Task.Delay(100);
         if (gameFinished)

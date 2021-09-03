@@ -43,7 +43,7 @@ public class AIController : MonoBehaviour
     [ContextMenu("Calculate Plays")]
     public async Task<Ply> CalculatePlays(){
 
-        _lastTime = Time.realtimeSinceStartup;
+        //_lastTime = Time.realtimeSinceStartup;
         int minimaxDirection;
         if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
         {
@@ -63,9 +63,9 @@ public class AIController : MonoBehaviour
                                        currentPlyDepth, minimaxDirection);
         
         //Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
-        Debug.Log("Calculations: " + _calculationCount);
-        Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
-        PrintBestPly(currentPly.BestFuture);
+        //Debug.Log("Calculations: " + _calculationCount);
+        //Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
+        //PrintBestPly(currentPly.BestFuture);
         PieceMovementState.EnPassantFlag = EnPassantFlagSaved;
         return currentPly.BestFuture;
     }
