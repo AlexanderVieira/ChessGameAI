@@ -7,7 +7,7 @@ public class KnightMovement : Movement
 {
     public KnightMovement(bool maxKingdom)
     {
-        PieceWeight = 3;
+        PieceWeight = 320;
         if (maxKingdom)
         {
             PositionValue = AIController.Instance.SquareTable.KnightGolden;

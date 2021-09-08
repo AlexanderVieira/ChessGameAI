@@ -6,7 +6,7 @@ public class RookMovement : Movement
 {
     public RookMovement(bool maxKingdom)
     {
-        PieceWeight = 5;
+        PieceWeight = 500;
         if (maxKingdom)
         {
             PositionValue = AIController.Instance.SquareTable.RookGolden;

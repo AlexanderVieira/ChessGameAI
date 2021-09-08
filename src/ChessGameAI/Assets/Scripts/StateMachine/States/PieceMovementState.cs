@@ -54,7 +54,7 @@ public class PieceMovementState : State
         }
         else
         {
-            var piece = NormalMoveHuman();
+            var piece = NormalMovePlayers();
             piece.WasMoved = true;
             var vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
             var timing = Vector3.Distance(piece.transform.position,vector3Pos) * 0.5f;
@@ -67,7 +67,7 @@ public class PieceMovementState : State
         }
     }
 
-    private static Piece NormalMoveHuman()
+    private static Piece NormalMovePlayers()
     {
         var piece = Board.Instance.SelectedPiece as Piece;        
         var pieceMoving = piece.CreateAffected();

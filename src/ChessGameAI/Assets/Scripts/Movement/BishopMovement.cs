@@ -6,7 +6,7 @@ public class BishopMovement : Movement
 {
     public BishopMovement(bool maxKingdom)
     {
-        PieceWeight = 3;
+        PieceWeight = 330;
         if (maxKingdom)
         {
             PositionValue = AIController.Instance.SquareTable.BishopGolden;

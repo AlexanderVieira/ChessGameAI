@@ -9,7 +9,7 @@ public class KingMovement : Movement
 {
     public KingMovement(bool maxKingdom)
     {
-        PieceWeight = 1000;
+        PieceWeight = 20000;
         if (maxKingdom)
         {
             PositionValue = AIController.Instance.SquareTable.KingGolden;

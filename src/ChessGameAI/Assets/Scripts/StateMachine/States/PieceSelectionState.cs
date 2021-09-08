@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,10 +6,11 @@ using UnityEngine;
 
 public class PieceSelectionState : State
 {
-    public override void EnterAsync()
-    {
+    public override async void EnterAsync()
+    {        
         SetColliders(true);
         InputController.Instance.TileClicked += PieceClicked;
+        await Task.Delay(100);
     }
 
     public override void Exit()
@@ -17,15 +19,16 @@ public class PieceSelectionState : State
         InputController.Instance.TileClicked -= PieceClicked;
     }
 
-    private void SetColliders(bool state)
+    private async void SetColliders(bool state)
     {
         foreach (var boxCollider2D in Machine.CurrentlyPlaying.GetComponentsInChildren<BoxCollider2D>())
         {
             boxCollider2D.enabled = state;
         }
+        await Task.Delay(100);
     }
 
-    private void PieceClicked(object sender, object args)
+    private async void PieceClicked(object sender, object args)
     {
         var piece = sender as Piece;
         var player = args as Player;
@@ -33,6 +36,7 @@ public class PieceSelectionState : State
         {
             //Debug.Log(piece + " was clicked.");
             Board.Instance.SelectedPiece = piece;
+            await Task.Delay(100);
             Machine.ChangeTo<MoveSelectionState>();            
         }
         

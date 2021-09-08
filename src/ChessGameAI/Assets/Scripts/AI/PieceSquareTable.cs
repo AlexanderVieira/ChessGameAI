@@ -102,9 +102,9 @@ public class PieceSquareTable
         {
             for (int x = 0; x < 8; x++)
             {
-                var posGolden = new Vector2Int(x, y);
+                //var posGolden = new Vector2Int(x, y);
                 goldens.Add(new Vector2Int(x, y), values[i]);               
-                var posGreen = new Vector2Int(x, y);
+                //var posGreen = new Vector2Int(x, y);
                 greens.Add(new Vector2Int(7 - x, 7 - y), values[i++]);                
             }
         }

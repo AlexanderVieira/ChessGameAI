@@ -6,11 +6,14 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController Instance;
     public Animator GameOverCanvas;
-    public int Level;    
+    public int LevelGolden;
+    public int LevelGreen;
     public bool AIControlledPlayer1;
     public bool AIControlledPlayer2;
-    public Text ScoreText;
-    public int Score;        
+    public Text ScoreTextGolden;
+    public Text ScoreTextGreen;
+    public int ScoreGolden;
+    public int ScoreGreen;
     
     private void Awake(){
         
@@ -31,10 +34,17 @@ public class LevelController : MonoBehaviour
         
     }    
 
-    public void ChangeLevel(string level){
+    public void ChangeLevelGolden(string level){
 
-        Level = int.Parse(level);
-        Debug.Log("Nível de dificuldade: " + Level);
+        LevelGolden = int.Parse(level);
+        Debug.Log("Nível de dificuldade Golden: " + LevelGolden);
+
+    }
+
+    public void ChangeLevelGreen(string level){
+
+        LevelGreen = int.Parse(level);
+        Debug.Log("Nível de dificuldade Green: " + LevelGreen);
 
     }
 
@@ -57,10 +67,14 @@ public class LevelController : MonoBehaviour
 
         if (GameControl.Instance != null)
         {
-            GameControl.Instance.Score += Score;
-            if (Score > GameControl.Instance.MaxScore)
+            GameControl.Instance.Score += ScoreGolden;            
+            GameControl.Instance.ScoreTotalText.text = "Score: " + GameControl.Instance.Score;
+            if (ScoreGolden > GameControl.Instance.MaxScore)
             {
-                GameControl.Instance.MaxScore = Score;
+                GameControl.Instance.MaxScore = ScoreGolden;                
+                PlayerPrefs.SetString("RECORD", GameControl.Instance.MaxScore.ToString());
+                //var maxScore = PlayerPrefs.GetString("RECORD");
+                GameControl.Instance.MaxScoreText.text = "Record: " + ScoreGolden;
             }
         }
     } 
@@ -71,15 +85,19 @@ public class LevelController : MonoBehaviour
         if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
         {
             scoreDirection = 1;
+            var positionValue = pe.Movement.PositionValue[pe.tile.pos];
+            ScoreGolden += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
+            ScoreTextGolden.text = "Golden Score: " + ScoreGolden;
         }
         else
         {
-            scoreDirection = -1;
+            scoreDirection = 1;
+            var positionValue = pe.Movement.PositionValue[pe.tile.pos];
+            ScoreGreen += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
+            ScoreTextGreen.text = "Green Score: " + ScoreGreen;
         }        
-        var positionValue = pe.Movement.PositionValue[pe.tile.pos];
-        Score += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
-        ScoreText.text = "Pontos: " + Score;
-        //Debug.Log(Score);
+        
+        //Debug.Log("Score: " + Score);
     }
 
     public void ReloadScene(){

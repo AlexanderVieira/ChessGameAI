@@ -15,6 +15,7 @@ public class AIPlayingState : State
     private async void MakeBestPlay(Ply bestResult)
     {
         var currentPly = bestResult;
+        //Debug.Log("GoalPlyDepth: " + AIController.Instance.GoalPlyDepth);
         for (int i = 1; i < AIController.Instance.GoalPlyDepth; i++)
         {
             currentPly = currentPly.OriginPly;

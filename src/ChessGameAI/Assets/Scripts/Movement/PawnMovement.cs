@@ -10,7 +10,7 @@ public class PawnMovement : Movement
 
     public PawnMovement(bool MaxKingdom)
     {        
-        PieceWeight = 1;
+        PieceWeight = 100;
         if (MaxKingdom)
         {
             _direction = new Vector2Int(0, 1);

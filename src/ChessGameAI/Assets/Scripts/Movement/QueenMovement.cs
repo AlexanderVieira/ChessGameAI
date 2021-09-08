@@ -6,7 +6,7 @@ public class QueenMovement : Movement
 {
     public QueenMovement(bool maxKingdom)
     {
-        PieceWeight = 9;
+        PieceWeight = 900;
         if (maxKingdom)
         {
             PositionValue = AIController.Instance.SquareTable.QueenGolden;

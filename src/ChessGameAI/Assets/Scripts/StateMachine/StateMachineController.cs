@@ -28,8 +28,11 @@ public class StateMachineController : MonoBehaviour
         
     }
 
-    private void Start(){
+    private async void Start(){
+        
+        await Task.Delay(100);
         ChangeTo<LoadState>();
+        
     }
 
     public void ChangeTo<T>() where T:State {

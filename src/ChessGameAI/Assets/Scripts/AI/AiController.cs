@@ -1,6 +1,4 @@
 using System.Threading.Tasks;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,13 +35,15 @@ public class AIController : MonoBehaviour
             Score = -999999
         };
         SquareTable.SetDictionaries();
+        //var squareTblResult = Task.Run(() => SquareTable.SetDictionaries());
+        //var completed = squareTblResult.IsCompleted;
 
     }
 
     [ContextMenu("Calculate Plays")]
     public async Task<Ply> CalculatePlays(){
 
-        //_lastTime = Time.realtimeSinceStartup;
+        _lastTime = Time.realtimeSinceStartup;
         int minimaxDirection;
         if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
         {
@@ -64,7 +64,7 @@ public class AIController : MonoBehaviour
         
         //Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
         //Debug.Log("Calculations: " + _calculationCount);
-        //Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
+        Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
         //PrintBestPly(currentPly.BestFuture);
         PieceMovementState.EnPassantFlag = EnPassantFlagSaved;
         return currentPly.BestFuture;
@@ -86,12 +86,19 @@ public class AIController : MonoBehaviour
 
     private async Task<Ply> CalculatePly(Ply parentPly, int alpha, int beta, 
                                          int currentPlyDepth, int minimaxDirection)
-    {              
-        currentPlyDepth++;
-        GoalPlyDepth = LevelController.Instance.Level;
+    {
+        if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
+        {
+            GoalPlyDepth = LevelController.Instance.LevelGolden;
+        }
+        else
+        {
+            GoalPlyDepth = LevelController.Instance.LevelGreen;
+        }              
+        currentPlyDepth++;        
         if (currentPlyDepth > GoalPlyDepth)
         {
-            EvaluateBoard(parentPly);
+            await EvaluateBoard(parentPly);
             //var evalTask = Task.Run(() => EvaluateBoard(parentPly));
             //await evalTask;
             return parentPly;
@@ -127,14 +134,14 @@ public class AIController : MonoBehaviour
                 newPly.EnPassantFlag = PieceMovementState.EnPassantFlag;               
                 var calculation = await CalculatePly(newPly, alpha, beta, 
                                                      currentPlyDepth, minimaxDirection * -1);                
-                parentPly.BestFuture = IsBest(parentPly.BestFuture, 
+                parentPly.BestFuture = await IsBest(parentPly.BestFuture, 
                                               minimaxDirection, calculation, 
                                               ref alpha, ref beta);                
                 newPly.OriginPly = parentPly;                
                 PieceMovementState.EnPassantFlag = parentPly.EnPassantFlag;
-                ResetBoard(newPly);
+                ResetBoard(newPly);                
                 if (beta <= alpha)
-                {
+                {                    
                     return parentPly.BestFuture;
                 }
             }
@@ -142,14 +149,15 @@ public class AIController : MonoBehaviour
         return parentPly.BestFuture;        
     }
 
-    private Ply IsBest(Ply ply, int minimaxDirection, Ply potencialBest, 
+    private Task<Ply> IsBest(Ply ply, int minimaxDirection, Ply potencialBest, 
                        ref int alpha, ref int beta)
     {
         var best = ply;
+        //Debug.Log("minimaxDirection: " + minimaxDirection);
         if (minimaxDirection == 1)
         {
             if (potencialBest.Score > ply.Score)
-            {
+            {   //Debug.Log(potencialBest.Score + ">" + ply.Score);
                 best = potencialBest;
             }
             alpha = Mathf.Max(alpha, best.Score);
@@ -162,28 +170,31 @@ public class AIController : MonoBehaviour
             }
             beta = Mathf.Min(beta, best.Score);
         }
-        return best;
+        return Task.FromResult(best);
     }    
 
     //[ContextMenu("Evaluate Board")]
-    public void EvaluateBoard(Ply ply){
-       
+    public async Task<Ply> EvaluateBoard(Ply ply){
+
+        var plyReturn = ply;       
         foreach (var pe in Board.Instance.GoldenPieces)
         {
-            EvaluatePiece(pe, ply, 1);
+            plyReturn = await EvaluatePiece(pe, ply, 1);
         }
 
         foreach (var pe in Board.Instance.GreenPieces)
         {
-            EvaluatePiece(pe, ply, -1);
+            plyReturn = await EvaluatePiece(pe, ply, -1);
         }
+        return plyReturn;
         //Debug.Log("Board Score: " + ply.Score);
     }
 
-    private void EvaluatePiece(Piece pe, Ply ply, int scoreDirection)
+    private Task<Ply> EvaluatePiece(Piece pe, Ply ply, int scoreDirection)
     {        
         var positionValue = pe.Movement.PositionValue[pe.tile.pos];
         ply.Score += (pe.Movement.PieceWeight + positionValue) * scoreDirection;
+        return Task.FromResult(ply);
     }    
 
     private void ResetBoard(Ply ply){
