@@ -28,6 +28,8 @@ public abstract class Piece : MonoBehaviour
     }
     void OnMouseDown(){
         
-        InputController.Instance.TileClicked(this, transform.parent.GetComponent<Player>());
+        InputController
+        .Instance
+        .TileClicked(this, transform.parent.GetComponent<Player>());
     }
 }

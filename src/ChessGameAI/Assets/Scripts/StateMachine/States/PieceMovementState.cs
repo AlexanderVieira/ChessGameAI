@@ -17,7 +17,8 @@ public class PieceMovementState : State
         await tcs.Task;        
         Machine.ChangeTo<TurnEndState>();
     }
-    public static void MovePiece(TaskCompletionSource<bool> tcs, bool skipMovement, MoveType moveType)
+    public static void MovePiece(TaskCompletionSource<bool> tcs, 
+                                 bool skipMovement, MoveType moveType)
     {
         AffectedPieces = new List<AffectedPiece>();        
         EnPassantFlag = new AvailableMove();
@@ -46,17 +47,21 @@ public class PieceMovementState : State
     {   
         if (skipMovement)
         {
-            var piece = NormalMoveAI(); 
+            var piece = NormalMoveAI();
+            //var piece = NormalMovePlayers(skipMovement); 
             piece.WasMoved = true;                         
-            //var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
+            //var Vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, 
+            //Board.Instance.SelectedMove.Pos.y, 0);
             //piece.transform.position = Vector3Pos;                      
             tcs.SetResult(true);
         }
         else
         {
             var piece = NormalMovePlayers();
+            //var piece = NormalMovePlayers(skipMovement);
             piece.WasMoved = true;
-            var vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, Board.Instance.SelectedMove.Pos.y, 0);
+            var vector3Pos = new Vector3(Board.Instance.SelectedMove.Pos.x, 
+                                         Board.Instance.SelectedMove.Pos.y, 0);
             var timing = Vector3.Distance(piece.transform.position,vector3Pos) * 0.5f;
             LeanTween.move(piece.gameObject, vector3Pos, timing)
                      .setOnComplete(() => 
@@ -90,7 +95,7 @@ public class PieceMovementState : State
             deadPiece.gameObject.SetActive(false);
             pieceKilled.Index = deadPiece.Kingdom.IndexOf(deadPiece);
             deadPiece.Kingdom.RemoveAt(pieceKilled.Index);
-            LevelController.Instance.UpdateScore(deadPiece);
+            LevelController.Instance.UpdateScore(deadPiece);       
             
         }
         piece.tile.content = piece; 
@@ -210,12 +215,14 @@ public class PieceMovementState : State
         }
         else
         {
-            LeanTween.move(king.gameObject, new Vector3(king.tile.pos.x, king.tile.pos.y, 0), 1.5f)
+            LeanTween.move(king.gameObject, 
+                           new Vector3(king.tile.pos.x, king.tile.pos.y, 0), 1.5f)
                      .setOnComplete(() => 
                      { 
                          tcs.SetResult(true); 
                      });
-            LeanTween.move(rook.gameObject, new Vector3(rook.tile.pos.x, rook.tile.pos.y, 0), 1.4f);
+            LeanTween.move(rook.gameObject, 
+                           new Vector3(rook.tile.pos.x, rook.tile.pos.y, 0), 1.4f);
         }
         
     }   

@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using UnityEngine;
 
 public class LoadState : State
 {
@@ -10,27 +7,28 @@ public class LoadState : State
     {
         //Debug.Log("Initial State Loaded.");
         await Board.Instance.LoadAsync();
-        await LoadAllPiecesAsync();
+        LoadAllPiecesAsync();
         Machine.Player1.AIControlled = LevelController.Instance.AIControlledPlayer1;        
         Machine.Player2.AIControlled = LevelController.Instance.AIControlledPlayer2;
-        Machine.CurrentlyPlaying = Machine.Player2;        
+        Machine.CurrentlyPlaying = Machine.Player2;
+        await Task.Delay(100);
         Machine.ChangeTo<TurnBeginState>();
     }
 
-    private async Task LoadAllPiecesAsync()
+    private async void LoadAllPiecesAsync()
     {
         LoadTeamPieces(Board.Instance.GoldenPieces);
         LoadTeamPieces(Board.Instance.GreenPieces);
         await Task.Delay(100);
     }
 
-    private async void LoadTeamPieces(List<Piece> pieces)
+    private void LoadTeamPieces(List<Piece> pieces)
     {
         foreach (var piece in pieces)
         {
             Board.Instance.AddPiece(piece.transform.parent.name, piece);
         }
-        await Task.Delay(100);
+        //await Task.Delay(100);
         
     }
 }

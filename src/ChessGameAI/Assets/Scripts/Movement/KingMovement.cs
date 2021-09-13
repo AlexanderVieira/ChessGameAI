@@ -1,9 +1,5 @@
-using System.Runtime.InteropServices;
-using System.IO.MemoryMappedFiles;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class KingMovement : Movement
 {
@@ -29,10 +25,10 @@ public class KingMovement : Movement
         UntilBlockedPath(moves, new Vector2Int(0, 1), true, 1);
         UntilBlockedPath(moves, new Vector2Int(0, -1), true, 1);
 
+        UntilBlockedPath(moves, new Vector2Int(1, 1), true, 1);
         UntilBlockedPath(moves, new Vector2Int(-1, -1), true, 1);
         UntilBlockedPath(moves, new Vector2Int(-1, 1), true, 1);
-        UntilBlockedPath(moves, new Vector2Int(1, -1), true, 1);
-        UntilBlockedPath(moves, new Vector2Int(1, 1), true, 1);        
+        UntilBlockedPath(moves, new Vector2Int(1, -1), true, 1);                
         
         Castling(moves);
         return moves;

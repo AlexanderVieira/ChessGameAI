@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    public static AIController Instance;    
+    public static AIController Instance;
     public Ply MinPly;
     public Ply MaxPly;
     public int GoalPlyDepth;
     public AvailableMove EnPassantFlagSaved;
-    public PieceSquareTable SquareTable = new PieceSquareTable();
+    public PieceSquareTable SquareTable = new PieceSquareTable();    
     private int _calculationCount;
     private float _lastTime;
     private const int ALPHA = -1000000;
     private const int BETA = 1000000;
-    private void Awake(){
-        
+    private void Awake()
+    {
+
         if (Instance == null)
         {
             Instance = this;
@@ -24,8 +25,8 @@ public class AIController : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
-        }        
-        
+        }
+
         MaxPly = new Ply
         {
             Score = 999999
@@ -34,14 +35,15 @@ public class AIController : MonoBehaviour
         {
             Score = -999999
         };
-        SquareTable.SetDictionaries();
-        //var squareTblResult = Task.Run(() => SquareTable.SetDictionaries());
-        //var completed = squareTblResult.IsCompleted;
+        //SquareTable.SetDictionaries();
+        var result = Task.Run(() => SquareTable.SetDictionaries());        
+        Task.Delay(100);
 
     }
 
     [ContextMenu("Calculate Plays")]
-    public async Task<Ply> CalculatePlays(){
+    public async Task<Ply> CalculatePlays()
+    {
 
         _lastTime = Time.realtimeSinceStartup;
         int minimaxDirection;
@@ -53,18 +55,19 @@ public class AIController : MonoBehaviour
         {
             minimaxDirection = -1;
         }
-        EnPassantFlagSaved = PieceMovementState.EnPassantFlag;        
-        _calculationCount = 0;        
+        EnPassantFlagSaved = PieceMovementState.EnPassantFlag;
+        _calculationCount = 0;
         var currentPly = new Ply();
         currentPly.OriginPly = null;
         int currentPlyDepth = 0;
-        currentPly.AffectedPieces = new List<AffectedPiece>();       
-        currentPly.BestFuture = await CalculatePly(currentPly, ALPHA, BETA, 
+        currentPly.AffectedPieces = new List<AffectedPiece>();
+        currentPly.BestFuture = await CalculatePly(currentPly, ALPHA, BETA,
                                        currentPlyDepth, minimaxDirection);
-        
-        //Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}", currentPly.BestFuture.Name, currentPly.BestFuture.Score);
+
+        //Debug.LogFormat("Melhor jogada para o GoldenPiece: {0}, com score: {1}",
+        // currentPly.BestFuture.Name, currentPly.BestFuture.Score);
         //Debug.Log("Calculations: " + _calculationCount);
-        Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
+        //Debug.Log("Time: " + (Time.realtimeSinceStartup - _lastTime));
         //PrintBestPly(currentPly.BestFuture);
         PieceMovementState.EnPassantFlag = EnPassantFlagSaved;
         return currentPly.BestFuture;
@@ -76,15 +79,15 @@ public class AIController : MonoBehaviour
         //Debug.Log("Melhor jogada: ");
         while (currentPly.OriginPly != null)
         {
-            Debug.LogFormat("Kingdom {0}: {1} -> Position: {2}", 
+            Debug.LogFormat("Kingdom {0}: {1} -> Position: {2}",
             currentPly.AffectedPieces[0].Piece.transform.parent.name,
             currentPly.AffectedPieces[0].Piece.name,
             currentPly.AffectedPieces[0].To.pos);
             currentPly = currentPly.OriginPly;
         }
-    }   
+    }
 
-    private async Task<Ply> CalculatePly(Ply parentPly, int alpha, int beta, 
+    private async Task<Ply> CalculatePly(Ply parentPly, int alpha, int beta,
                                          int currentPlyDepth, int minimaxDirection)
     {
         if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
@@ -94,8 +97,8 @@ public class AIController : MonoBehaviour
         else
         {
             GoalPlyDepth = LevelController.Instance.LevelGreen;
-        }              
-        currentPlyDepth++;        
+        }
+        currentPlyDepth++;
         if (currentPlyDepth > GoalPlyDepth)
         {
             await EvaluateBoard(parentPly);
@@ -116,67 +119,71 @@ public class AIController : MonoBehaviour
             kingdom = Board.Instance.GreenPieces;
             parentPly.BestFuture = MaxPly;
         }
-        
-        for (int i = 0; i < kingdom.Count; i++)       
-        {            
+
+        for (int i = 0; i < kingdom.Count; i++)
+        {
             Board.Instance.SelectedPiece = kingdom[i];
             foreach (var availableMove in kingdom[i].Movement.GetValidMoves())
-            {                
+            {
                 _calculationCount++;
                 Board.Instance.SelectedPiece = kingdom[i];
-                Board.Instance.SelectedMove = availableMove;               
+                Board.Instance.SelectedMove = availableMove;
                 var tcs = new TaskCompletionSource<bool>();
                 PieceMovementState.MovePiece(tcs, true, availableMove.MoveType);
-                await tcs.Task;               
-                //newPly.Name = string.Format("{0}, {1} to {2}", parentPly.Name, pe.Piece.transform.parent.name + "-" + pe.Piece.name , tile.pos);
+                await tcs.Task;                
                 var newPly = new Ply();
                 newPly.AffectedPieces = PieceMovementState.AffectedPieces;
-                newPly.EnPassantFlag = PieceMovementState.EnPassantFlag;               
-                var calculation = await CalculatePly(newPly, alpha, beta, 
-                                                     currentPlyDepth, minimaxDirection * -1);                
-                parentPly.BestFuture = await IsBest(parentPly.BestFuture, 
-                                              minimaxDirection, calculation, 
-                                              ref alpha, ref beta);                
-                newPly.OriginPly = parentPly;                
+                newPly.EnPassantFlag = PieceMovementState.EnPassantFlag;
+                var calculation = await CalculatePly(newPly, alpha, beta,
+                                                     currentPlyDepth, minimaxDirection * -1);
+                parentPly.BestFuture = await IsBest(parentPly.BestFuture,
+                                                    minimaxDirection, calculation,
+                                                    ref alpha, ref beta);
+                newPly.OriginPly = parentPly;
                 PieceMovementState.EnPassantFlag = parentPly.EnPassantFlag;
-                ResetBoard(newPly);                
+                ResetBoard(newPly);                                               
                 if (beta <= alpha)
-                {                    
+                {
+                    //break;
                     return parentPly.BestFuture;
-                }
+                }               
             }
         }
-        return parentPly.BestFuture;        
+        return parentPly.BestFuture;
     }
 
-    private Task<Ply> IsBest(Ply ply, int minimaxDirection, Ply potencialBest, 
-                       ref int alpha, ref int beta)
-    {
-        var best = ply;
-        //Debug.Log("minimaxDirection: " + minimaxDirection);
+    private Task<Ply> IsBest(Ply parentPly, int minimaxDirection, Ply potencialBest,
+                             ref int alpha, ref int beta)
+    {                
+        var best = parentPly;
         if (minimaxDirection == 1)
         {
-            if (potencialBest.Score > ply.Score)
-            {   //Debug.Log(potencialBest.Score + ">" + ply.Score);
-                best = potencialBest;
-            }
+            if (potencialBest.Score >= parentPly.Score)
+            {   //Debug.Log(potencialBest.Score + ">" + parentPly.Score);
+                best = potencialBest;                
+            }           
             alpha = Mathf.Max(alpha, best.Score);
+            //Mathf.Min(beta, best.Score);
+
         }
         else
         {
-            if (potencialBest.Score < ply.Score)
+            if (potencialBest.Score <= parentPly.Score)
             {
-                best = potencialBest;
+                best = potencialBest;                
             }
             beta = Mathf.Min(beta, best.Score);
-        }
+            //Mathf.Max(alpha, best.Score)            
+
+        }        
         return Task.FromResult(best);
-    }    
+    }
 
     //[ContextMenu("Evaluate Board")]
-    public async Task<Ply> EvaluateBoard(Ply ply){
+    public async Task<Ply> EvaluateBoard(Ply ply)
+    {
 
-        var plyReturn = ply;       
+        var plyReturn = ply;
         foreach (var pe in Board.Instance.GoldenPieces)
         {
             plyReturn = await EvaluatePiece(pe, ply, 1);
@@ -186,22 +193,24 @@ public class AIController : MonoBehaviour
         {
             plyReturn = await EvaluatePiece(pe, ply, -1);
         }
-        return plyReturn;
-        //Debug.Log("Board Score: " + ply.Score);
+        //Debug.Log("EvaluateBoard: " + ply.Score);
+        return plyReturn;        
     }
 
-    private Task<Ply> EvaluatePiece(Piece pe, Ply ply, int scoreDirection)
-    {        
+    private async Task<Ply> EvaluatePiece(Piece pe, Ply ply, int scoreDirection)
+    {
         var positionValue = pe.Movement.PositionValue[pe.tile.pos];
         ply.Score += (pe.Movement.PieceWeight + positionValue) * scoreDirection;
-        return Task.FromResult(ply);
-    }    
+        //Debug.Log("EvaluatePiece: " + ply.Score);
+        return await Task.FromResult(ply);
+    }
 
-    private void ResetBoard(Ply ply){
+    private void ResetBoard(Ply ply)
+    {
 
         foreach (var ap in ply.AffectedPieces)
         {
-            ap.Undo();            
+            ap.Undo();
         }
     }
 }

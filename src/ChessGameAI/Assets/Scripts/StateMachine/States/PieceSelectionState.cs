@@ -1,16 +1,13 @@
 using System.Threading.Tasks;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PieceSelectionState : State
 {
     public override async void EnterAsync()
     {        
-        SetColliders(true);
+        SetColliders(true);        
         InputController.Instance.TileClicked += PieceClicked;
-        await Task.Delay(100);
+        await Task.Delay(100);        
     }
 
     public override void Exit()

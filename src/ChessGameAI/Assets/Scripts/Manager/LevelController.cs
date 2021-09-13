@@ -14,95 +14,113 @@ public class LevelController : MonoBehaviour
     public Text ScoreTextGreen;
     public int ScoreGolden;
     public int ScoreGreen;
-    
-    private void Awake(){
-        
+
+    private void Awake()
+    {
+
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);            
-            
-        }else if (Instance != this)
+            DontDestroyOnLoad(gameObject);
+
+        }
+        else if (Instance != this)
         {
             Destroy(gameObject);
-        }        
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        }
     }    
 
-    public void ChangeLevelGolden(string level){
-
+    public void ChangeLevelGolden(string level)
+    {
         LevelGolden = int.Parse(level);
-        Debug.Log("Nível de dificuldade Golden: " + LevelGolden);
-
+        //Debug.Log("Nível de dificuldade Golden: " + LevelGolden);
     }
 
-    public void ChangeLevelGreen(string level){
-
+    public void ChangeLevelGreen(string level)
+    {
         LevelGreen = int.Parse(level);
-        Debug.Log("Nível de dificuldade Green: " + LevelGreen);
-
+        //Debug.Log("Nível de dificuldade Green: " + LevelGreen);
     }
 
-    public void ChangeAIPlayer1(string activated){
-        
-        AIControlledPlayer1 = bool.Parse(activated);      
-        //PlayerPrefs.SetString("AICONTROLLED_PLAYER1", AIControlledPlayer1.ToString());
-
+    public void ChangeAIPlayer1(string activated)
+    {
+        AIControlledPlayer1 = bool.Parse(activated);
     }
 
-    public void ChangeAIPlayer2(string activated){
-        
-        AIControlledPlayer2 = bool.Parse(activated);       
-
+    public void ChangeAIPlayer2(string activated)
+    {
+        AIControlledPlayer2 = bool.Parse(activated);
     }
 
-    public void GameOver(){
-                
+    public void GameOver()
+    {
+
         GameOverCanvas.SetTrigger("GameOver");
 
         if (GameControl.Instance != null)
         {
-            GameControl.Instance.Score += ScoreGolden;            
-            GameControl.Instance.ScoreTotalText.text = "Score: " + GameControl.Instance.Score;
-            if (ScoreGolden > GameControl.Instance.MaxScore)
+            var maxScore = PlayerPrefs.GetString("RECORD");
+
+            if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
             {
-                GameControl.Instance.MaxScore = ScoreGolden;                
-                PlayerPrefs.SetString("RECORD", GameControl.Instance.MaxScore.ToString());
-                //var maxScore = PlayerPrefs.GetString("RECORD");
-                GameControl.Instance.MaxScoreText.text = "Record: " + ScoreGolden;
+                GameControl.Instance.Score = ScoreGolden;
             }
+            else
+            {
+                GameControl.Instance.Score = ScoreGreen;
+            }
+
+            GameControl.Instance.ScoreTotalText.text = "Score: " + GameControl.Instance.Score;
+            
+            if (ScoreGolden > int.Parse(maxScore))
+            {                
+                PersistScore(ScoreGolden);                
+            }
+            else if (ScoreGreen > int.Parse(maxScore))
+            {                
+                PersistScore(ScoreGreen);                
+            }
+            else
+            {                
+                GameControl.Instance.MaxScoreText.text = "Record: " + maxScore;
+            }
+
         }
-    } 
+    }
 
-    public void UpdateScore(Piece pe){
+    private void PersistScore(int KingdomScore){
 
-        int scoreDirection;        
+        GameControl.Instance.MaxScore = KingdomScore;
+        PlayerPrefs.SetString("RECORD", GameControl.Instance.MaxScore.ToString());                
+        GameControl.Instance.MaxScoreText.text = "Record: " + GameControl.Instance.MaxScore;
+
+    }
+
+    public void UpdateScore(Piece pe)
+    {
+        int scoreDirection = 1;
         if (StateMachineController.Instance.CurrentlyPlaying == StateMachineController.Instance.Player1)
         {
-            scoreDirection = 1;
-            var positionValue = pe.Movement.PositionValue[pe.tile.pos];
-            ScoreGolden += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
-            ScoreTextGolden.text = "Golden Score: " + ScoreGolden;
+            var kingdomName = "Golden Score: ";
+            CalculateScore(pe, kingdomName, ref ScoreGolden, scoreDirection, ref ScoreTextGolden);            
         }
         else
         {
-            scoreDirection = 1;
-            var positionValue = pe.Movement.PositionValue[pe.tile.pos];
-            ScoreGreen += (pe.Movement.PieceWeight + positionValue) * scoreDirection;               
-            ScoreTextGreen.text = "Green Score: " + ScoreGreen;
-        }        
-        
-        //Debug.Log("Score: " + Score);
+            var kingdomName = "Green Score: ";
+            CalculateScore(pe, kingdomName, ref ScoreGreen, scoreDirection, ref ScoreTextGreen);            
+        }       
     }
 
-    public void ReloadScene(){
+    private void CalculateScore(Piece pe, string kingdomName, 
+                                ref int kingdomScore, int scoreDirection, ref Text ScoreText){
 
+        var positionValue = pe.Movement.PositionValue[pe.tile.pos];
+        kingdomScore += (pe.Movement.PieceWeight + positionValue) * scoreDirection;
+        ScoreText.text = kingdomName + kingdomScore;
+    }
+
+    public void ReloadScene()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 }

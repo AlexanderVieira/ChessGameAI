@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -36,14 +33,14 @@ public class TurnEndState : State
         var king = Board.Instance.GoldenHolder.GetComponentInChildren<King>();
         if (king == null)
         {
-            Debug.Log("Green Winner!");
+            //Debug.Log("Green Winner!");
             return true;
         }
 
         king = Board.Instance.GreenHolder.GetComponentInChildren<King>();
         if (king == null)
         {
-            Debug.Log("Golden Winner!");
+            //Debug.Log("Golden Winner!");
             return true;
         }
         return false;
@@ -52,13 +49,19 @@ public class TurnEndState : State
 
     private bool CheckTeams()
     {
-        var goldenPiece = Board.Instance.GoldenPieces.Find((x) => x.gameObject.activeSelf == true);
+        var goldenPiece = Board
+                          .Instance
+                          .GoldenPieces
+                          .Find((x) => x.gameObject.activeSelf == true);
         if (goldenPiece == null)
         {
             Debug.Log("Green Winner!");
             return true;
         }
-        var greenPiece = Board.Instance.GreenPieces.Find((x) => x.gameObject.activeSelf == true);
+        var greenPiece = Board
+                         .Instance
+                         .GreenPieces
+                         .Find((x) => x.gameObject.activeSelf == true);
         if (greenPiece == null)
         {
             Debug.Log("Golden Winner!");

@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,8 +14,8 @@ public class PieceSquareTable
     public Dictionary<Vector2Int, int> QueenGolden = new Dictionary<Vector2Int, int>();
     public Dictionary<Vector2Int, int> QueenGreen = new Dictionary<Vector2Int, int>();
     public Dictionary<Vector2Int, int> KingGolden = new Dictionary<Vector2Int, int>();
-    public Dictionary<Vector2Int, int> KingGreen = new Dictionary<Vector2Int, int>();
-
+    public Dictionary<Vector2Int, int> KingGreen = new Dictionary<Vector2Int, int>(); 
+    
     public void SetDictionaries(){
 
         var pawnValues = new List<int>(){
@@ -90,7 +88,20 @@ public class PieceSquareTable
              20, 20,  0,  0,  0,  0, 20, 20,
              20, 30, 10,  0,  0, 10, 30, 20
         };
+
+        // var kingValuesFinal = new List<int>(){
+        //     -50,-40,-30,-20,-20,-30,-40,-50,
+        //     -30,-20,-10,  0,  0,-10,-20,-30,
+        //     -30,-10, 20, 30, 30, 20,-10,-30,
+        //     -30,-10, 30, 40, 40, 30,-10,-30,
+        //     -30,-10, 30, 40, 40, 30,-10,-30,
+        //     -30,-10, 20, 30, 30, 20,-10,-30,
+        //     -30,-30,  0,  0,  0,  0,-30,-30,
+        //     -50,-30,-30,-30,-30,-30,-30,-50
+        // };       
+
         SetDictionary(KingGolden, KingGreen, kingValues);
+
     }
 
     private void SetDictionary(Dictionary<Vector2Int, int> goldens, 
